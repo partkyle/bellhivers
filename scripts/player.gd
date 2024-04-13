@@ -5,7 +5,7 @@ extends CharacterBody3D
 @export var speed = 5.0
 @export var camera_speed := 0.001
 @export var hitscan_max_distance := 1000
-@export var grenade_force := 100
+@export var grenade_force := 250
 
 @onready var camera_wrapper = $CameraGunWrapper
 @onready var camera = $CameraGunWrapper/Camera
@@ -44,7 +44,7 @@ func throw_grenade():
 	var g :RigidBody3D = bell_grenade_scn.instantiate()
 	get_tree().root.add_child(g)
 	g.global_position = grenade_toss_point.global_position
-	g.apply_central_force(-camera_basis().z * grenade_force + camera_basis().y * grenade_force)
+	g.apply_central_force(-camera_basis().z * 2 * grenade_force + camera_basis().y * grenade_force)
 
 
 func camera_basis() -> Basis:
@@ -62,7 +62,6 @@ func fire_hitscan():
 	query.collide_with_areas = true
 	query.collide_with_bodies = true
 	# only collide with layer 2 "enemy"
-	query.collision_mask = 0b00000000_00000000_00000000_00000010
 	var result = space_state.intersect_ray(query)
 	if result:
 		print(result)

@@ -30,3 +30,6 @@ func _on_spawn_timer_timeout():
 	if count < bee_count:
 		count += 1
 		_spawn()
+
+func bell_smash():
+	queue_free()

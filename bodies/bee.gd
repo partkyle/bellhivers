@@ -24,6 +24,9 @@ func _physics_process(delta):
 func hit():
 	queue_free()
 
+func bell_smash():
+	queue_free()
+
 func _on_player_locator_body_entered(body):
 	target = body
 

@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2dr6cvfk8tj7"]
+
+[ext_resource type="PackedScene" uid="uid://bmlnawdsvers1" path="res://assets/bell.glb" id="1_a2r5b"]
+[ext_resource type="Texture2D" uid="uid://cogon4ct15u1s" path="res://assets/bell.png" id="2_21ycb"]
+[ext_resource type="Texture2D" uid="uid://t0p67x0nrg5e" path="res://assets/clacker.png" id="3_2qqlw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v3l0s"]
+cull_mode = 2
+albedo_texture = ExtResource("2_21ycb")
+metallic = 1.0
+roughness = 0.55
+normal_scale = 5.83
+ao_light_affect = 0.2
+refraction_scale = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y450k"]
+albedo_texture = ExtResource("3_2qqlw")
+metallic = 1.0
+roughness = 0.55
+normal_scale = 5.83
+ao_light_affect = 0.2
+
+[node name="Bell" instance=ExtResource("1_a2r5b")]
+
+[node name="bell" parent="Node/root" index="0"]
+material_override = SubResource("StandardMaterial3D_v3l0s")
+
+[node name="clacker" parent="Node/root" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.92088e-17, 2.00041, 0)
+material_override = SubResource("StandardMaterial3D_y450k")

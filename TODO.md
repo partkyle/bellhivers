@@ -7,10 +7,13 @@
 	- [ ] sound
 	- [ ] muzzle flash
 	- [ ] hit animations
+	- [ ] reload
+	- [ ] ammo?
 - [ ] damage bee
 - [ ] damage player
 - [ ] stamina and running
 - [ ] bell model
+	- [ ] bell sound
 - [x] bell grenade (small jingle bell) (sphere and pixel art on top)
 	- [ ] bell grenade summons light
 	- [ ] bell grenade summons bell

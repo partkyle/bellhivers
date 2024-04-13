@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://1n0r1pvx421r" path="res://bodies/hive.tscn" id="1_rbh67"]
 [ext_resource type="PackedScene" uid="uid://beepb4m8e6685" path="res://bodies/player.tscn" id="2_ay3iu"]
-[ext_resource type="Script" path="res://scripts/Debug.gd" id="3_5ilbs"]
+[ext_resource type="Script" path="res://scripts/debug.gd" id="3_gavpo"]
 [ext_resource type="Texture2D" uid="uid://dlgyl42phgbi4" path="res://assets/crosshair.png" id="5_v1on8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_phxa0"]
@@ -60,13 +60,12 @@ face_target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("2_ay3iu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.3764)
-grenade_force = 500
 
 [node name="Enemies" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.14768)
 
 [node name="Debug" type="Node3D" parent="."]
-script = ExtResource("3_5ilbs")
+script = ExtResource("3_gavpo")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

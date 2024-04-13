@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bn8r33xqdefax"]
+
+[ext_resource type="Script" path="res://scripts/bell.gd" id="1_dgcpk"]
+[ext_resource type="PackedScene" uid="uid://d2dr6cvfk8tj7" path="res://projectiles/bell_inherited.tscn" id="1_th71w"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hta8j"]
+points = PackedVector3Array(0.474548, 0.832308, 1.06727, -0.60661, -1.93588, -1.94146, -0.724433, -1.92746, -1.8718, 0.606588, -1.93581, 1.94139, 1.95531, -1.56504, -0.630695, -1.95492, -1.56504, 0.630695, -0.295568, 1.30233, -0.649657, 0.893153, 0.836174, -0.77414, -0.774092, 0.836456, 0.893097, 1.94139, -1.93582, 0.60659, -1.94146, -1.93588, -0.60661, -1.13301, 0.838105, -0.357614, -0.606608, -1.93587, 1.94145, 0.630695, -1.56504, -1.95531, 1.13307, 0.837815, 0.357634, -0.357939, 0.837972, -1.13285, 1.45202, -1.93134, -1.4524, 1.51351, -1.69109, 1.45028, 0.117962, 1.60067, 0.177313, -1.45068, -1.69146, -1.5139, -1.45068, -1.69146, 1.5139, -0.630695, -1.56504, 1.95531, -1.133, 0.838099, 0.357612, 0.630695, -1.56504, 1.95531, -0.357938, 0.837969, 1.13285, 0.303963, 0.85713, -1.15491, -0.630695, -1.56504, -1.95531, -1.95492, -1.56504, -0.630695, 1.95531, -1.56504, 0.630695, 1.45068, -1.69109, -1.5139, -1.9414, -1.93583, 0.606592, 1.13307, 0.837816, -0.357634)
+
+[node name="Bell" type="RigidBody3D"]
+collision_layer = 256
+collision_mask = 271
+gravity_scale = 2.19
+max_contacts_reported = 15
+contact_monitor = true
+angular_velocity = Vector3(0.00724312, 0, 0.00610865)
+script = ExtResource("1_dgcpk")
+
+[node name="Bell" parent="." instance=ExtResource("1_th71w")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.44823e-17, 2.06052, -3.13307e-18)
+shape = SubResource("ConvexPolygonShape3D_hta8j")
+
+[node name="SFXTimer" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
