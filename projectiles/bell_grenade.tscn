@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2ydtvwb165ys"]
+[gd_scene load_steps=5 format=3 uid="uid://c2ydtvwb165ys"]
 
 [ext_resource type="Script" path="res://scripts/bell_grenade.gd" id="2_6bqyx"]
 [ext_resource type="PackedScene" uid="uid://u3d5y743nxfv" path="res://projectiles/bell_grenade_inherited.tscn" id="2_ylamx"]
+[ext_resource type="PackedScene" uid="uid://1dus0nhspjnq" path="res://lifecycle/despawn_on_timer.tscn" id="3_fgp8k"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_s0562"]
 radius = 0.125
@@ -17,5 +18,8 @@ script = ExtResource("2_6bqyx")
 shape = SubResource("SphereShape3D_s0562")
 
 [node name="bell_grenade" parent="." instance=ExtResource("2_ylamx")]
+
+[node name="DespawnOnTimer" parent="." instance=ExtResource("3_fgp8k")]
+height = 0.1
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

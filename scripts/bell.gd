@@ -6,6 +6,8 @@ extends RigidBody3D
 
 @onready var bell_sound_scn = preload('res://sfx/bell_sound.tscn')
 @onready var sfx_timer = $SFXTimer
+@onready var despawn_on_timer = $DespawnOnTimer
+
 
 
 func _on_body_entered(body):
@@ -18,6 +20,7 @@ func _on_body_entered(body):
 	if body.collision_layer & body_collision_layer:
 		await get_tree().create_timer(roll_time).timeout
 		freeze = true
+		despawn_on_timer.start()
 
 
 func play_bell():

@@ -67,6 +67,8 @@ func camera_basis() -> Basis:
 	return basis * camera_wrapper.basis
 
 func fire_hitscan():
+	gun.play_gunshot()
+
 	var space_state = get_world_3d().direct_space_state
 	# use global coordinates, not local to node
 	var start = camera.global_position

@@ -9,6 +9,8 @@
 	- [ ] hit animations
 	- [ ] reload
 	- [ ] ammo?
+- [x] clean up projectiles after some time
+	- [ ] use object pools?
 - [ ] damage bee
 - [ ] damage player
 - [ ] stamina and running
