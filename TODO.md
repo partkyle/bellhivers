@@ -4,7 +4,7 @@
 - [x] fps controls
 - [x] make shooting
 	- [ ] auto firing using a timer
-	- [ ] sound
+	- [x] sound
 	- [ ] muzzle flash
 	- [ ] hit animations
 	- [ ] reload

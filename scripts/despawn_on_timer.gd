@@ -21,5 +21,4 @@ func _on_timer_timeout():
 
 
 func sink(value: float):
-	print(value)
 	get_parent().global_position.y -= value * height

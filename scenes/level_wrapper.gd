@@ -18,6 +18,8 @@ func create_level():
 
 	current_floor += 1
 
+	print(current_floor)
+
 	if current_level:
 		current_level.queue_free()
 
