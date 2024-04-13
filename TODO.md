@@ -3,6 +3,8 @@
 - [x] make a quick gun
 - [x] fps controls
 - [x] make shooting
+	- [ ] auto firing using a timer
+	- [ ] sound
 	- [ ] muzzle flash
 	- [ ] hit animations
 - [ ] damage bee

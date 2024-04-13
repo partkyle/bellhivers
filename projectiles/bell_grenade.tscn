@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2ydtvwb165ys"]
+
+[ext_resource type="Script" path="res://scripts/bell_grenade.gd" id="2_6bqyx"]
+[ext_resource type="PackedScene" uid="uid://u3d5y743nxfv" path="res://projectiles/bell_grenade_inherited.tscn" id="2_ylamx"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_s0562"]
+radius = 0.125
+
+[node name="BellGrenade" type="RigidBody3D"]
+collision_layer = 0
+collision_mask = 4
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("2_6bqyx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_s0562")
+
+[node name="bell_grenade" parent="." instance=ExtResource("2_ylamx")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

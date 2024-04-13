@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://u3d5y743nxfv"]
+
+[ext_resource type="PackedScene" uid="uid://dpsvqcqtbw27l" path="res://assets/bell_grenade.glb" id="1_5bivk"]
+
+[node name="bell_grenade" instance=ExtResource("1_5bivk")]

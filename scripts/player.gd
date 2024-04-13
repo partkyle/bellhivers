@@ -1,13 +1,16 @@
 extends CharacterBody3D
 
-@export var bullet_scn : PackedScene
+@export var bullet_scn : PackedScene = preload('res://projectiles/bullet.tscn')
+@export var bell_grenade_scn : PackedScene = preload('res://projectiles/bell_grenade.tscn')
 @export var speed = 5.0
 @export var camera_speed := 0.001
 @export var hitscan_max_distance := 1000
+@export var grenade_force := 100
 
 @onready var camera_wrapper = $CameraGunWrapper
 @onready var camera = $CameraGunWrapper/Camera
 @onready var gun : Gun = $CameraGunWrapper/Gun
+@onready var grenade_toss_point = $GrenadeTossPoint
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -18,6 +21,9 @@ func _input(event):
 func _physics_process(delta):
 	if Input.is_action_just_pressed("fire"):
 		fire_hitscan()
+
+	if Input.is_action_just_pressed('grenade'):
+		throw_grenade()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -34,13 +40,23 @@ func _physics_process(delta):
 
 
 
+func throw_grenade():
+	var g :RigidBody3D = bell_grenade_scn.instantiate()
+	get_tree().root.add_child(g)
+	g.global_position = grenade_toss_point.global_position
+	g.apply_central_force(-camera_basis().z * grenade_force + camera_basis().y * grenade_force)
+
+
+func camera_basis() -> Basis:
+	return basis * camera_wrapper.basis
+
 func fire_hitscan():
 	var space_state = get_world_3d().direct_space_state
 	# use global coordinates, not local to node
 	var start = camera.global_position
 	# need to take into account the player roration and the camera rotation, because they
 	# combined are the way the gun is pointing
-	var end = camera.global_position + (-(basis * camera_wrapper.basis).z * hitscan_max_distance)
+	var end = camera.global_position + (-(camera_basis()).z * hitscan_max_distance)
 
 	var query = PhysicsRayQueryParameters3D.create(start, end)
 	query.collide_with_areas = true

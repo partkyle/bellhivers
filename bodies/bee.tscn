@@ -6,7 +6,9 @@
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_pfi07"]
 radius = 10.0
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o6ivj"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqeck"]
+radius = 0.7
+height = 2.905
 
 [node name="Bee" type="CharacterBody3D"]
 collision_layer = 2
@@ -23,8 +25,8 @@ collision_layer = 0
 shape = SubResource("CylinderShape3D_pfi07")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.49076, 0, 0, 0, -7.10092e-08, 1.33369, 0, -1.6245, -5.82975e-08, 0, 1.53904, 0.140157)
-shape = SubResource("CapsuleShape3D_o6ivj")
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.53904, 0.140157)
+shape = SubResource("CapsuleShape3D_kqeck")
 
 [connection signal="body_entered" from="player_locator" to="." method="_on_player_locator_body_entered"]
 [connection signal="body_exited" from="player_locator" to="." method="_on_player_locator_body_exited"]

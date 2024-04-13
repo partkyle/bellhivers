@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://163ofm6opq6q"]
+[gd_scene load_steps=13 format=3 uid="uid://163ofm6opq6q"]
 
 [ext_resource type="PackedScene" uid="uid://1n0r1pvx421r" path="res://bodies/hive.tscn" id="1_rbh67"]
 [ext_resource type="PackedScene" uid="uid://beepb4m8e6685" path="res://bodies/player.tscn" id="2_ay3iu"]
@@ -30,6 +30,9 @@ albedo_texture = SubResource("NoiseTexture2D_2l31a")
 [sub_resource type="PlaneMesh" id="PlaneMesh_xdwd5"]
 size = Vector2(100, 100)
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_nwrrb"]
+data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50)
+
 [node name="Main" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18.6472)
 
@@ -57,13 +60,10 @@ face_target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("2_ay3iu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.3764)
+grenade_force = 500
 
 [node name="Enemies" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.14768)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = SubResource("StandardMaterial3D_15pio")
-mesh = SubResource("PlaneMesh_xdwd5")
 
 [node name="Debug" type="Node3D" parent="."]
 script = ExtResource("3_5ilbs")
@@ -86,3 +86,15 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_v1on8")
 stretch_mode = 3
+
+[node name="Floor" type="StaticBody3D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+material_override = SubResource("StandardMaterial3D_15pio")
+mesh = SubResource("PlaneMesh_xdwd5")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("ConcavePolygonShape3D_nwrrb")
