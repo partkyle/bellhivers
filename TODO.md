@@ -12,11 +12,12 @@
 - [ ] damage bee
 - [ ] damage player
 - [ ] stamina and running
-- [ ] bell model
-	- [ ] bell sound
+- [x] bell model
+	- [x] bell sound
+	- [ ] clacker physics
 - [x] bell grenade (small jingle bell) (sphere and pixel art on top)
 	- [ ] bell grenade summons light
-	- [ ] bell grenade summons bell
+	- [x] bell grenade summons bell
 - [ ] kill hive somehow
 	- [ ] kill individual components
 - [ ] level mamangement script
@@ -27,7 +28,8 @@
 	- [ ] game over
 - [ ] terrain texture that matches ( this might just be something that looks like grass and honey)
 - [ ] more interesting terrain
-
+- [] bell sound told bees where you are
+- [] bees can tell other bees where you are
 - [ ] summoning (summongems) bell
 	- [ ] explosion
 	- [ ] turret

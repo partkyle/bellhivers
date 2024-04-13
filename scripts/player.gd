@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody3D
 
 @export var bullet_scn : PackedScene = preload('res://projectiles/bullet.tscn')
@@ -12,6 +13,13 @@ extends CharacterBody3D
 @onready var gun : Gun = $CameraGunWrapper/Gun
 @onready var grenade_toss_point = $GrenadeTossPoint
 
+
+const JUMP_VELOCITY = 4.5
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
+
+
 func _input(event):
 	if event is InputEventMouseMotion:
 		transform.basis = Basis(Vector3.UP, -event.relative.x * camera_speed) * transform.basis
@@ -19,6 +27,14 @@ func _input(event):
 
 
 func _physics_process(delta):
+	# Add the gravity.
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+
+	# Handle jump.
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
 	if Input.is_action_just_pressed("fire"):
 		fire_hitscan()
 

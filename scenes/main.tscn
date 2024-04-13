@@ -1,8 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://163ofm6opq6q"]
+[gd_scene load_steps=8 format=3 uid="uid://163ofm6opq6q"]
 
-[ext_resource type="PackedScene" uid="uid://1n0r1pvx421r" path="res://bodies/hive.tscn" id="1_rbh67"]
 [ext_resource type="PackedScene" uid="uid://beepb4m8e6685" path="res://bodies/player.tscn" id="2_ay3iu"]
 [ext_resource type="Script" path="res://scripts/debug.gd" id="3_gavpo"]
+[ext_resource type="Script" path="res://scenes/level_wrapper.gd" id="5_1prlr"]
 [ext_resource type="Texture2D" uid="uid://dlgyl42phgbi4" path="res://assets/crosshair.png" id="5_v1on8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_phxa0"]
@@ -18,23 +18,11 @@ sky = SubResource("Sky_kjg3m")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_ahg8h"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2l31a"]
-noise = SubResource("FastNoiseLite_ahg8h")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_15pio"]
-albedo_color = Color(0.12549, 0.231373, 0.0431373, 1)
-albedo_texture = SubResource("NoiseTexture2D_2l31a")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_xdwd5"]
-size = Vector2(100, 100)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_nwrrb"]
-data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50)
-
 [node name="Main" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18.6472)
+
+[node name="Debug" type="Node3D" parent="."]
+script = ExtResource("3_gavpo")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0m4im")
@@ -43,33 +31,12 @@ environment = SubResource("Environment_0m4im")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Hive" parent="." node_paths=PackedStringArray("enemy_container", "face_target") instance=ExtResource("1_rbh67")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24.2029)
-enemy_container = NodePath("../Enemies")
-face_target = NodePath("../Player")
-
-[node name="Hive2" parent="." node_paths=PackedStringArray("enemy_container", "face_target") instance=ExtResource("1_rbh67")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.6254, 0, -8)
-enemy_container = NodePath("../Enemies")
-face_target = NodePath("../Player")
-
-[node name="Hive3" parent="." node_paths=PackedStringArray("enemy_container", "face_target") instance=ExtResource("1_rbh67")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.0265, 0, -8)
-enemy_container = NodePath("../Enemies")
-face_target = NodePath("../Player")
-
-[node name="Player" parent="." instance=ExtResource("2_ay3iu")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("2_ay3iu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.3764)
-
-[node name="Enemies" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.14768)
-
-[node name="Debug" type="Node3D" parent="."]
-script = ExtResource("3_gavpo")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+[node name="Crosshair" type="TextureRect" parent="CanvasLayer"]
 self_modulate = Color(0, 1, 1, 1)
 texture_filter = 1
 anchors_preset = 8
@@ -85,15 +52,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_v1on8")
 stretch_mode = 3
+metadata/_edit_use_anchors_ = true
 
-[node name="Floor" type="StaticBody3D" parent="."]
-collision_layer = 4
-collision_mask = 0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
-material_override = SubResource("StandardMaterial3D_15pio")
-mesh = SubResource("PlaneMesh_xdwd5")
-skeleton = NodePath("../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-shape = SubResource("ConcavePolygonShape3D_nwrrb")
+[node name="LevelWrapper" type="Node3D" parent="."]
+script = ExtResource("5_1prlr")

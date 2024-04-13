@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://clt5foi3l2jxf"]
+
+[ext_resource type="Script" path="res://scripts/hive_controller.gd" id="1_iuqkw"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_r4ycl"]
+[ext_resource type="PackedScene" uid="uid://1n0r1pvx421r" path="res://bodies/hive.tscn" id="2_trcbv"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ahg8h"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2l31a"]
+noise = SubResource("FastNoiseLite_ahg8h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_15pio"]
+albedo_color = Color(0.12549, 0.231373, 0.0431373, 1)
+albedo_texture = SubResource("NoiseTexture2D_2l31a")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xdwd5"]
+size = Vector2(100, 100)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_nwrrb"]
+data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50)
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_r4ycl")
+
+[node name="HiveController" type="Node3D" parent="."]
+script = ExtResource("1_iuqkw")
+
+[node name="Hive" parent="HiveController" node_paths=PackedStringArray("enemy_container") instance=ExtResource("2_trcbv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24.2029)
+enemy_container = NodePath("../../Enemies")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+material_override = SubResource("StandardMaterial3D_15pio")
+mesh = SubResource("PlaneMesh_xdwd5")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("ConcavePolygonShape3D_nwrrb")
+
+[node name="Enemies" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.14768)
+
+[connection signal="all_hives_gone" from="HiveController" to="." method="_on_hive_controller_all_hives_gone"]
+[connection signal="child_entered_tree" from="HiveController" to="HiveController" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="HiveController" to="HiveController" method="_on_child_exiting_tree"]
