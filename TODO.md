@@ -2,7 +2,9 @@
 - [x] fix the hive z orientation to match godot
 - [x] make a quick gun
 - [x] fps controls
-- [ ] make shooting
+- [x] make shooting
+	- [ ] muzzle flash
+	- [ ] hit animations
 - [ ] damage bee
 - [ ] damage player
 - [ ] stamina and running
@@ -18,8 +20,6 @@
 	- [ ] game over
 - [ ] terrain texture that matches ( this might just be something that looks like grass and honey)
 - [ ] more interesting terrain
-
-
 
 - [ ] summoning (summongems) bell
 	- [ ] explosion

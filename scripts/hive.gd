@@ -4,8 +4,12 @@ extends Node3D
 @export var spawnTimer := 1.0
 @export var enemy_container : Node3D
 @export var face_target : Node3D
+@export var bee_count := 50
+@export var spawn_radius := Vector2(-5, 5)
 
 @onready var spawn_timer = $SpawnTimer
+
+var count = 0
 
 func _ready():
 	spawn_timer.wait_time = spawnTimer
@@ -19,8 +23,10 @@ func _process(delta):
 func _spawn():
 	var b = bee.instantiate()
 	enemy_container.add_child(b)
-	b.transform.origin = Vector3.ZERO
-	b.transform.basis = Basis.IDENTITY
+	b.global_position = global_position + Vector3(randf_range(spawn_radius.x, spawn_radius.y), 0, randf_range(spawn_radius.x, spawn_radius.y))
+	b.transform.basis = transform.basis
 
 func _on_spawn_timer_timeout():
-	_spawn()
+	if count < bee_count:
+		count += 1
+		_spawn()

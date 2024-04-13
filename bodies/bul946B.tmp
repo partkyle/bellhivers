@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6p0s4rb7x6rk"]
+
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_d6d2r"]
+[ext_resource type="PackedScene" uid="uid://brgjwjphru0r" path="res://bodies/bee.tscn" id="2_a4uxn"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0c7xe"]
+top_radius = 0.01
+bottom_radius = 0.01
+height = 0.1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_c8syi"]
+height = 0.1
+radius = 0.01
+
+[node name="Bullet" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_d6d2r")
+speed = null
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_0c7xe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_c8syi")
+
+[node name="Bee" parent="." instance=ExtResource("2_a4uxn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0833094, 0, 0.312728)
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

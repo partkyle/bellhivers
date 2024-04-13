@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://1n0r1pvx421r"]
+[gd_scene load_steps=6 format=3 uid="uid://1n0r1pvx421r"]
 
 [ext_resource type="Script" path="res://scripts/hive.gd" id="1_agc8l"]
 [ext_resource type="PackedScene" uid="uid://cxiasvd6udb6j" path="res://bodies/hive_inherited.tscn" id="2_go4uo"]
 [ext_resource type="PackedScene" uid="uid://brgjwjphru0r" path="res://bodies/bee.tscn" id="2_j7drg"]
+[ext_resource type="Script" path="res://bodies/hive_hit_area.gd" id="4_pcv74"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mvikf"]
+size = Vector3(2.81226, 2.91223, 1)
 
 [node name="Hive" type="Node3D"]
 script = ExtResource("1_agc8l")
@@ -12,5 +16,14 @@ bee = ExtResource("2_j7drg")
 
 [node name="SpawnTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="HitArea" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_pcv74")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51657, 0)
+shape = SubResource("BoxShape3D_mvikf")
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
