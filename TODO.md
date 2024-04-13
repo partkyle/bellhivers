@@ -11,7 +11,9 @@
 - [ ] damage player
 - [ ] stamina and running
 - [ ] bell model
-- [ ] bell grenade (small jingle bell) (sphere and pixel art on top)
+- [x] bell grenade (small jingle bell) (sphere and pixel art on top)
+	- [ ] bell grenade summons light
+	- [ ] bell grenade summons bell
 - [ ] kill hive somehow
 	- [ ] kill individual components
 - [ ] level mamangement script
