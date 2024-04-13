@@ -6,4 +6,5 @@
 [node name="GunshotSound" type="AudioStreamPlayer3D"]
 stream = ExtResource("1_d3vfe")
 autoplay = true
+panning_strength = 0.0
 script = ExtResource("2_oolvn")
