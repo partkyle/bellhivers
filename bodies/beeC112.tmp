@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dg8o1ng4j0sk0"]
+
+[ext_resource type="Script" path="res://bodies/bee.gd" id="1_0hl8t"]
+[ext_resource type="PackedScene" uid="uid://mwguoac5t8pq" path="res://bodies/bee_inherited.tscn" id="1_g4kd3"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ktbwm"]
+radius = 10.0
+
+[node name="Bee" type="Node3D"]
+script = ExtResource("1_0hl8t")
+
+[node name="bee" parent="." instance=ExtResource("1_g4kd3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.585516, 0)
+
+[node name="PlayerLocator" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerLocator"]
+shape = SubResource("CylinderShape3D_ktbwm")
+
+[connection signal="body_entered" from="PlayerLocator" to="." method="_on_player_locator_body_entered"]
+[connection signal="body_exited" from="PlayerLocator" to="." method="_on_player_locator_body_exited"]

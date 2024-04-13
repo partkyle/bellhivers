@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://163ofm6opq6q"]
+
+[ext_resource type="PackedScene" uid="uid://1n0r1pvx421r" path="res://bodies/hive.tscn" id="1_rbh67"]
+[ext_resource type="PackedScene" uid="uid://beepb4m8e6685" path="res://bodies/player.tscn" id="2_ay3iu"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_phxa0"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_kjg3m"]
+sky_material = SubResource("ProceduralSkyMaterial_phxa0")
+
+[sub_resource type="Environment" id="Environment_0m4im"]
+background_mode = 2
+sky = SubResource("Sky_kjg3m")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ahg8h"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2l31a"]
+noise = SubResource("FastNoiseLite_ahg8h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_15pio"]
+albedo_color = Color(0.447059, 0.447059, 0.447059, 1)
+albedo_texture = SubResource("NoiseTexture2D_2l31a")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xdwd5"]
+size = Vector2(100, 100)
+
+[node name="Main" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18.6472)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0m4im")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Hive" parent="." node_paths=PackedStringArray("enemy_container") instance=ExtResource("1_rbh67")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+enemy_container = NodePath("../Enemies")
+
+[node name="Player" parent="." instance=ExtResource("2_ay3iu")]
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.87493, -0.359686)
+
+[node name="Enemies" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.14768)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_15pio")
+mesh = SubResource("PlaneMesh_xdwd5")

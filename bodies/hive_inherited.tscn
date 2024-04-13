@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxiasvd6udb6j"]
+
+[ext_resource type="PackedScene" uid="uid://dpacwxqdo516v" path="res://assets/hive.glb" id="1_xfy7w"]
+[ext_resource type="Texture2D" uid="uid://b5lmu1ghp204y" path="res://assets/hive.png" id="2_mmra2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h28ye"]
+albedo_texture = ExtResource("2_mmra2")
+texture_filter = 0
+
+[node name="hive_model" instance=ExtResource("1_xfy7w")]
+
+[node name="hive_bot" parent="Node" index="0"]
+material_override = SubResource("StandardMaterial3D_h28ye")
+
+[node name="hive_bot_right" parent="Node" index="1"]
+material_override = SubResource("StandardMaterial3D_h28ye")
+
+[node name="hive_bot_left" parent="Node" index="2"]
+material_override = SubResource("StandardMaterial3D_h28ye")
+
+[node name="hive_top_left" parent="Node" index="3"]
+material_override = SubResource("StandardMaterial3D_h28ye")
+
+[node name="hive_top_right" parent="Node" index="4"]
+material_override = SubResource("StandardMaterial3D_h28ye")
+
+[node name="hive_center" parent="Node" index="5"]
+material_override = SubResource("StandardMaterial3D_h28ye")
+
+[node name="hive_top" parent="Node" index="6"]
+material_override = SubResource("StandardMaterial3D_h28ye")
