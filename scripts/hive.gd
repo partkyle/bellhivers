@@ -22,6 +22,9 @@ func _ready():
 func _process(delta):
 	if face_target:
 		look_at(face_target.global_position)
+		# hacky, but this is at least not weird looking
+		rotation.x = 0
+		rotation.z = 0
 
 func _spawn():
 	var b = bee.instantiate()
@@ -34,3 +37,6 @@ func _on_spawn_timer_timeout():
 		count += 1
 		_spawn()
 
+
+func destroy():
+	queue_free()

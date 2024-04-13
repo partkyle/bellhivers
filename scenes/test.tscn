@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0ljj7v6isnh6"]
+
+[ext_resource type="PackedScene" uid="uid://1n0r1pvx421r" path="res://bodies/hive.tscn" id="1_lrlhj"]
+[ext_resource type="PackedScene" uid="uid://beepb4m8e6685" path="res://bodies/player.tscn" id="2_catn2"]
+[ext_resource type="PackedScene" uid="uid://vaes654ahljj" path="res://bodies/floor.tscn" id="3_1cxti"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Hive" parent="." instance=ExtResource("1_lrlhj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.74613, -31.1877, -57.6961)
+
+[node name="Player" parent="." instance=ExtResource("2_catn2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47544, 1.23994, -47.554)
+
+[node name="Floor" parent="." instance=ExtResource("3_1cxti")]

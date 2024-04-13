@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://1n0r1pvx421r"]
 
 [ext_resource type="Script" path="res://scripts/hive.gd" id="1_agc8l"]
-[ext_resource type="PackedScene" uid="uid://cxiasvd6udb6j" path="res://bodies/hive_inherited.tscn" id="2_go4uo"]
 [ext_resource type="PackedScene" uid="uid://brgjwjphru0r" path="res://bodies/bee.tscn" id="2_j7drg"]
-[ext_resource type="Script" path="res://bodies/hive_hit_area.gd" id="4_pcv74"]
+[ext_resource type="PackedScene" uid="uid://cxiasvd6udb6j" path="res://bodies/hive_model.tscn" id="3_drmic"]
+[ext_resource type="Script" path="res://scripts/hive_hit_area.gd" id="4_pcv74"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mvikf"]
 size = Vector3(2.81226, 2.91223, 1)
@@ -12,7 +12,7 @@ size = Vector3(2.81226, 2.91223, 1)
 script = ExtResource("1_agc8l")
 bee = ExtResource("2_j7drg")
 
-[node name="hive_model" parent="." instance=ExtResource("2_go4uo")]
+[node name="hive_model" parent="." instance=ExtResource("3_drmic")]
 
 [node name="SpawnTimer" type="Timer" parent="."]
 autostart = true

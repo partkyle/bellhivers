@@ -1,4 +1,4 @@
 extends StaticBody3D
 
 func bell_smash():
-	get_parent().queue_free()
+	get_parent().destroy()
