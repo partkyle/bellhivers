@@ -4,9 +4,9 @@ extends RigidBody3D
 @export var roll_time := 3
 @export var body_collision_layer := 4 + 8
 
-@onready var bell_sound_scn = preload('res://sfx/bell_sound.tscn')
 @onready var sfx_timer = $SFXTimer
 @onready var despawn_on_timer = $DespawnOnTimer
+@onready var audio_stream_player_3d = $AudioStreamPlayer3D
 
 
 
@@ -26,6 +26,5 @@ func _on_body_entered(body):
 func play_bell():
 	if sfx_timer.is_stopped():
 		sfx_timer.start()
-		var snd = bell_sound_scn.instantiate()
-		get_tree().root.add_child(snd)
-		snd.global_position = global_position
+		audio_stream_player_3d.play()
+
