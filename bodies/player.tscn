@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://beepb4m8e6685"]
+[gd_scene load_steps=5 format=3 uid="uid://beepb4m8e6685"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_whwnc"]
+[ext_resource type="PackedScene" uid="uid://csiod4xs6bts6" path="res://bodies/gun_inherited.tscn" id="2_c3pai"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p7v33"]
 
@@ -16,3 +17,6 @@ shape = SubResource("CapsuleShape3D_p7v33")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_ddein")
+
+[node name="Gun" parent="." instance=ExtResource("2_c3pai")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.683076, 1.35979, -0.593893)
