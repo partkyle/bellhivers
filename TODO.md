@@ -1,7 +1,7 @@
 - [x] fix the bee z orientation to match godot
 - [x] fix the hive z orientation to match godot
 - [x] make a quick gun
-- [ ] fps controls
+- [x] fps controls
 - [ ] make shooting
 - [ ] damage bee
 - [ ] damage player

@@ -16,7 +16,13 @@ shape = SubResource("CapsuleShape3D_p7v33")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_ddein")
 
-[node name="Gun" parent="." instance=ExtResource("2_c3pai")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.683076, 1.35979, -0.593893)
+[node name="CameraGunWrapper" type="Node3D" parent="."]
+
+[node name="Gun" parent="CameraGunWrapper" instance=ExtResource("2_c3pai")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.683, 1, -0.5)
+
+[node name="Camera" type="Camera3D" parent="CameraGunWrapper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)

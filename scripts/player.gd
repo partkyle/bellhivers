@@ -1,11 +1,15 @@
 extends CharacterBody3D
 
+@onready var camera = $CameraGunWrapper
 
 const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+@export var camera_speed := 0.001
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
+func _input(event):
+	if event is InputEventMouseMotion:
+		transform.basis = Basis(Vector3.UP, -event.relative.x * camera_speed) * transform.basis
+		camera.transform.basis = Basis(camera.transform.basis.x, -event.relative.y * camera_speed) * camera.transform.basis
 
 
 func _physics_process(delta):
