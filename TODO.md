@@ -1,8 +1,10 @@
-- [ ] fix the bee z orientation to match godot
+- [x] fix the bee z orientation to match godot
+- [ ] fix the hive z orientation to match godot
 - [ ] make a quick gun
 - [ ] make shooting
 - [ ] damage bee
 - [ ] damage player
+- [ ] stamina and running
 - [ ] bell model
 - [ ] bell grenade (small jingle bell) (sphere and pixel art on top)
 - [ ] kill hive somehow
