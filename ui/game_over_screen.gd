@@ -1,6 +1,5 @@
 extends Control
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hide()
@@ -15,7 +14,8 @@ func game_over():
 
 
 func _on_main_menu_button_pressed():
-	pass # Replace with function body.
+	EventBus.open_main_menu.emit()
+	hide()
 
 
 func _on_hive_again_button_pressed():

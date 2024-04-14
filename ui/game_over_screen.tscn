@@ -68,15 +68,15 @@ grow_vertical = 0
 
 [node name="MainMenuButton" type="Button" parent="ColorRect/Buttons"]
 layout_mode = 2
-text = "Main Menu"
+text = "main menu"
 
-[node name="Control" type="Control" parent="ColorRect/Buttons"]
+[node name="Spacer" type="Control" parent="ColorRect/Buttons"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
 [node name="HiveAgainButton" type="Button" parent="ColorRect/Buttons"]
 layout_mode = 2
-text = "Hive Again"
+text = "hive again"
 
 [connection signal="pressed" from="ColorRect/Buttons/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="ColorRect/Buttons/HiveAgainButton" to="." method="_on_hive_again_button_pressed"]

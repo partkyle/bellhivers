@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://beepb4m8e6685"]
+[gd_scene load_steps=6 format=3 uid="uid://beepb4m8e6685"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_whwnc"]
 [ext_resource type="PackedScene" uid="uid://csiod4xs6bts6" path="res://bodies/gun_inherited.tscn" id="2_c3pai"]
+[ext_resource type="Texture2D" uid="uid://dlgyl42phgbi4" path="res://assets/crosshair.png" id="3_muwjl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p7v33"]
 
@@ -21,10 +22,30 @@ visible = false
 mesh = SubResource("CapsuleMesh_ddein")
 
 [node name="CameraGunWrapper" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 1.5, 0)
 
 [node name="Gun" parent="CameraGunWrapper" instance=ExtResource("2_c3pai")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.683, -0.5, -0.5)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CameraGunWrapper/Gun"]
+
+[node name="Crosshair" type="TextureRect" parent="CameraGunWrapper/Gun/CanvasLayer"]
+self_modulate = Color(0, 1, 1, 1)
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_muwjl")
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="Camera" type="Camera3D" parent="CameraGunWrapper"]
 

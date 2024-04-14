@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqtiy8waxdbyq"]
+
+[ext_resource type="Theme" uid="uid://ime6wnkxuqh0" path="res://ui/ui_theme.tres" id="1_0f1qq"]
+[ext_resource type="Script" path="res://ui/main_menu.gd" id="1_48c5t"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_48c5t")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0f1qq")
+color = Color(0, 0, 0, 0.458824)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -240.0
+offset_top = 100.0
+offset_right = 240.0
+offset_bottom = 148.0
+grow_horizontal = 2
+
+[node name="Title" type="Label" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "BELLHIVERS"
+
+[node name="Buttons" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -35.0
+offset_right = 48.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartGameButton" type="Button" parent="ColorRect/Buttons"]
+layout_mode = 2
+text = "start game"
+
+[node name="Spacer" type="Control" parent="ColorRect/Buttons"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Exit" type="Button" parent="ColorRect/Buttons"]
+layout_mode = 2
+text = "exit"
+
+[connection signal="pressed" from="ColorRect/Buttons/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="ColorRect/Buttons/Exit" to="." method="_on_exit_pressed"]
