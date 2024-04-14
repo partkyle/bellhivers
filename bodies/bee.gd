@@ -42,11 +42,9 @@ func _physics_process(delta):
 
 func hit(attacker: Node3D):
 	bee_model.destroy()
-	await get_tree().create_timer(notify_community_delay).timeout
 	for e in enemy_community.get_overlapping_bodies():
 		e.acquire_target(attacker)
 	queue_free()
-
 
 func bell_smash():
 	bee_model.destroy()
