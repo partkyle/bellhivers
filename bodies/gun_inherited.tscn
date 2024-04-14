@@ -1,11 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://csiod4xs6bts6"]
+[gd_scene load_steps=5 format=3 uid="uid://csiod4xs6bts6"]
 
 [ext_resource type="PackedScene" uid="uid://bj4yfvqxmt40" path="res://assets/gun.glb" id="1_mwg3i"]
 [ext_resource type="Script" path="res://bodies/gun.gd" id="2_54hi0"]
 [ext_resource type="AudioStream" uid="uid://cn52yhtiqvlu5" path="res://assets/sounds/meaty-gunshot.mp3" id="3_vstku"]
+[ext_resource type="PackedScene" uid="uid://cjjio5hl2piti" path="res://effects/muzzle_flash.tscn" id="3_weuc6"]
 
 [node name="Gun" instance=ExtResource("1_mwg3i")]
 script = ExtResource("2_54hi0")
+
+[node name="MuzzleFlash" parent="Node/muzzle" index="0" instance=ExtResource("3_weuc6")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="1"]
 stream = ExtResource("3_vstku")

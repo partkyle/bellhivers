@@ -1,0 +1,103 @@
+[gd_scene load_steps=17 format=3 uid="uid://cjjio5hl2piti"]
+
+[ext_resource type="Script" path="res://effects/muzzle_flash.gd" id="1_lafff"]
+[ext_resource type="Shader" path="res://shaders/beam.gdshader" id="2_6ouqq"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3twdo"]
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_i4jcc"]
+seed = 10
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gucfv"]
+noise = SubResource("FastNoiseLite_i4jcc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hxu42"]
+render_priority = 0
+shader = ExtResource("2_6ouqq")
+shader_parameter/color = Color(5, 2, 1, 1)
+shader_parameter/time_scale = 1.0
+shader_parameter/alpha_scale = 3.9
+shader_parameter/use_vertex = 0
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_gucfv")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_csv0a"]
+material = SubResource("ShaderMaterial_hxu42")
+top_radius = 0.2
+bottom_radius = 0.01
+height = 0.1
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1qs71"]
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7l1q4"]
+seed = 10
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4bcrg"]
+noise = SubResource("FastNoiseLite_7l1q4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t5a48"]
+render_priority = 0
+shader = ExtResource("2_6ouqq")
+shader_parameter/color = Color(5, 2, 1, 1)
+shader_parameter/time_scale = -0.8
+shader_parameter/alpha_scale = 3.9
+shader_parameter/use_vertex = 0
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_4bcrg")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ign2b"]
+material = SubResource("ShaderMaterial_t5a48")
+top_radius = 0.01
+bottom_radius = 0.001
+height = 0.01
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mojca"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ro2kj"]
+noise = SubResource("FastNoiseLite_mojca")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tfg5c"]
+render_priority = 0
+shader = ExtResource("2_6ouqq")
+shader_parameter/color = Color(5, 2, 1, 1)
+shader_parameter/time_scale = -1.0
+shader_parameter/alpha_scale = 2.2
+shader_parameter/use_vertex = 1
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ro2kj")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_t806x"]
+top_radius = 0.01
+bottom_radius = 0.01
+height = 1000.0
+cap_top = false
+cap_bottom = false
+
+[node name="MuzzleFlash" type="Node3D"]
+script = ExtResource("1_lafff")
+
+[node name="Fire" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+emitting = false
+amount = 1
+lifetime = 0.05
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_3twdo")
+draw_pass_1 = SubResource("CylinderMesh_csv0a")
+
+[node name="Fire2" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+emitting = false
+amount = 1
+lifetime = 0.05
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_1qs71")
+draw_pass_1 = SubResource("CylinderMesh_ign2b")
+
+[node name="Bullet" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -500)
+material_override = SubResource("ShaderMaterial_tfg5c")
+mesh = SubResource("CylinderMesh_t806x")

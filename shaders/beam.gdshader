@@ -3,7 +3,7 @@ render_mode cull_disabled;
 
 uniform vec3 color : source_color = vec3(1.0);
 uniform sampler2D noise_texture;
-uniform float time_scale : hint_range(0.0, 1.0, 0.1) = 0.1;
+uniform float time_scale : hint_range(-10.0, 10.0, 0.1) = 0.1;
 uniform float alpha_scale : hint_range(0.0, 10.0, 0.1) = 1.0;
 uniform int use_vertex = 0;
 
