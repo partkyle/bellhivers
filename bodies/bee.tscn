@@ -23,6 +23,9 @@ height = 2.905
 collision_layer = 2
 collision_mask = 266
 script = ExtResource("1_0hl8t")
+speed = null
+patrol_range = null
+notify_community_delay = null
 
 [node name="bee_model" parent="." instance=ExtResource("2_n8hg6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.96, 0)

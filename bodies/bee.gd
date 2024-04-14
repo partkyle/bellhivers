@@ -41,12 +41,14 @@ func _physics_process(_delta):
 
 
 func hit(attacker: Node3D):
+	Stats.bees_shot += 1
 	bee_model.destroy()
 	for e in enemy_community.get_overlapping_bodies():
 		e.acquire_target(attacker)
 	queue_free()
 
 func bell_smash():
+	Stats.bees_belled += 1
 	bee_model.destroy()
 	queue_free()
 

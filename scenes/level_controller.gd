@@ -35,13 +35,12 @@ func game_started():
 func next_level():
 	var level = level_scn.instantiate()
 	level.current_floor = current_floor
-	add_child(level)
-	level.global_position = global_position + Vector3.DOWN * drop_per_floor * current_floor
+	level.initial_position = global_position + Vector3.DOWN * drop_per_floor * current_floor
+	add_child.call_deferred(level)
 
 	current_floor += 1
 
 	if current_level:
-		current_level.destroy()
+		current_level.queue_free()
 
 	current_level = level
-

@@ -20,10 +20,10 @@ func hives_to_spanwn():
 	# make sure there is at least 1
 	return max((level.current_floor + 1) / 2, 1)
 
-func _on_child_entered_tree(node):
+func _on_child_entered_tree(_node):
 	hives_left += 1
 
-func _on_child_exiting_tree(node):
+func _on_child_exiting_tree(_node):
 	hives_left -= 1
 
 	if hives_left <= 0:

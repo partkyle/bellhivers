@@ -46,5 +46,6 @@ func player_joined(player: Player):
 
 
 func destroy():
+	Stats.hives_destroyed += 1
 	hive_model.destroy()
 	queue_free()
