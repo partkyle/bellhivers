@@ -1,7 +1,8 @@
 last day:
 - [x] player starts at 20m
 	- [x] and look down
-- [ ] damage player
+- [x] bee kills player
+- [x] bell kills player
 - [ ] death on falling off the map (falling more than 30m?)
 - [ ] ui
 	- [x] main menu screen
