@@ -1,0 +1,100 @@
+[gd_scene load_steps=16 format=3 uid="uid://dw8qoh7b5r3fi"]
+
+[ext_resource type="Shader" path="res://shaders/beam.gdshader" id="1_4s3e7"]
+[ext_resource type="PackedScene" uid="uid://1dus0nhspjnq" path="res://lifecycle/despawn_on_timer.tscn" id="2_p4t1a"]
+[ext_resource type="AudioStream" uid="uid://1twg47nkdjgv" path="res://assets/sounds/Laser_Shoot22.wav" id="3_1eqc3"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pecle"]
+noise_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wk5e0"]
+noise = SubResource("FastNoiseLite_pecle")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k0upd"]
+render_priority = 0
+shader = ExtResource("1_4s3e7")
+shader_parameter/color = Color(2, 5, 5, 1)
+shader_parameter/time_scale = 0.2
+shader_parameter/alpha_scale = 1.8
+shader_parameter/use_vertex = 1
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_wk5e0")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wjh2t"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 50.0
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2ka61"]
+frequency = 0.0005
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_quknn"]
+noise = SubResource("FastNoiseLite_2ka61")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lu3tf"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_4s3e7")
+shader_parameter/color = Color(2, 1, 5, 1)
+shader_parameter/time_scale = 0.4
+shader_parameter/alpha_scale = 3.4
+shader_parameter/use_vertex = 0
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_quknn")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8puo8"]
+top_radius = 0.61
+bottom_radius = 0.1
+height = 0.2
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_e8nuy"]
+frequency = 0.035
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_25ydl"]
+noise = SubResource("FastNoiseLite_e8nuy")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ghk8u"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_4s3e7")
+shader_parameter/color = Color(2, 1, 5, 1)
+shader_parameter/time_scale = 0.4
+shader_parameter/alpha_scale = 3.4
+shader_parameter/use_vertex = 0
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_25ydl")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_v3i32"]
+top_radius = 0.3
+bottom_radius = 0.1
+height = 0.2
+cap_top = false
+cap_bottom = false
+
+[node name="SummoningBeam" type="Node3D"]
+
+[node name="Beam" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 0)
+material_override = SubResource("ShaderMaterial_k0upd")
+mesh = SubResource("CylinderMesh_wjh2t")
+
+[node name="OuterRay" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+material_override = SubResource("ShaderMaterial_lu3tf")
+mesh = SubResource("CylinderMesh_8puo8")
+
+[node name="OuterRay2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+material_override = SubResource("ShaderMaterial_ghk8u")
+mesh = SubResource("CylinderMesh_v3i32")
+
+[node name="DespawnOnTimer" parent="." instance=ExtResource("2_p4t1a")]
+despawn_time = 2.0
+sink_time = 0.0
+autostart = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_1eqc3")
+volume_db = -10.0
+autoplay = true

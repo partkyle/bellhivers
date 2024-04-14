@@ -3,15 +3,16 @@
 - [x] make a quick gun
 - [x] fps controls
 - [x] make shooting
+	- [ ] muzzle flash
+	- [ ] reload
 	- [ ] auto firing using a timer
 	- [x] sound
-	- [ ] muzzle flash
 	- [ ] hit animations
-	- [ ] reload
-	- [ ] ammo?
 - [x] clean up projectiles after some time
 	- [ ] use object pools?
-- [ ] damage bee
+- [ ] bee has health
+  - [ ] weakpoints ?
+  - [ ] that scales ?
 - [ ] damage player
 - [ ] stamina and running
 - [x] bell model
@@ -20,19 +21,29 @@
 - [x] bell grenade (small jingle bell) (sphere and pixel art on top)
 	- [ ] bell grenade summons light
 	- [x] bell grenade summons bell
-- [ ] kill hive somehow
-	- [ ] kill individual components
-- [ ] level mamangement script
-	- [ ] extraction or menu based ( ring a bell )
-- [ ] individual mesh damage for bee
+- [x kill hive somehow
+	- [x] kill individual components
+- [x] level mamangement script
+	- [x] extraction or menu based ( ring a bell ) - drop down
+	- [ ] create ui element
+- [ ] remove the debug UI
+
 - [ ] ui
 	- [ ] main screen
+	- [ ] next lefel
 	- [ ] game over
-- [ ] terrain texture that matches ( this might just be something that looks like grass and honey)
+- [x] terrain texture that matches ( this might just be something that looks like grass and honey)
 - [ ] more interesting terrain
-- [] bell sound told bees where you are
-- [] bees can tell other bees where you are
+- [ ] bell sound told bees where you are
+- [ ] bees can tell other bees where you are
+
+- [ ] better terrain
+- [ ] death on falling off the map
+
+probably not:
+- [ ] individual mesh damage for bee
 - [ ] summoning (summongems) bell
 	- [ ] explosion
 	- [ ] turret
 	- [ ] laser?
+- [ ] ammo?
