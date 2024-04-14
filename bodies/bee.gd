@@ -69,3 +69,8 @@ func set_patrol_position():
 
 func _on_patrol_timer_timeout():
 	set_patrol_position()
+
+
+func _on_player_damage_body_entered(body):
+	if body.has_method('hit_by_bee'):
+		body.hit_by_bee()

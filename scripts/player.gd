@@ -77,6 +77,8 @@ func throw_grenade():
 func camera_basis() -> Basis:
 	return basis * camera_wrapper.basis
 
+func hit_by_bee():
+	EventBus.game_over.emit(GameOver.Cause.BEE)
 
 func bell_smash():
 	EventBus.game_over.emit(GameOver.Cause.BELL)
