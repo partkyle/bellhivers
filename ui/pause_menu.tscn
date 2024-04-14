@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://6pu1xqnfnoae"]
+[gd_scene load_steps=8 format=3 uid="uid://6pu1xqnfnoae"]
 
 [ext_resource type="PackedScene" uid="uid://bqtiy8waxdbyq" path="res://ui/main_menu.tscn" id="1_posya"]
 [ext_resource type="Script" path="res://ui/pause_menu.gd" id="2_iv34t"]
+[ext_resource type="PackedScene" uid="uid://daxpsic4ci5r4" path="res://ui/stats_container.tscn" id="3_2mqyr"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_p0ki0"]
 action = &"resume_game"
@@ -30,5 +31,9 @@ layout_mode = 2
 
 [node name="Exit" parent="ColorRect/MenuWrapper/Buttons" index="4"]
 shortcut = SubResource("Shortcut_iapbv")
+
+[node name="StatsContainer" parent="ColorRect" index="1" instance=ExtResource("3_2mqyr")]
+layout_mode = 1
+offset_left = -346.0
 
 [connection signal="pressed" from="ColorRect/MenuWrapper/Buttons/Resume" to="." method="_on_resume_pressed"]
