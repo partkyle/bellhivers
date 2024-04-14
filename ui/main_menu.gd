@@ -12,6 +12,5 @@ func _on_start_game_button_pressed():
 	EventBus.game_started.emit()
 	hide()
 
-
 func _on_exit_pressed():
 	get_tree().quit()

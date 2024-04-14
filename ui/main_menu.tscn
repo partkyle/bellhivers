@@ -1,7 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqtiy8waxdbyq"]
+[gd_scene load_steps=7 format=3 uid="uid://bqtiy8waxdbyq"]
 
 [ext_resource type="Theme" uid="uid://ime6wnkxuqh0" path="res://ui/ui_theme.tres" id="1_0f1qq"]
 [ext_resource type="Script" path="res://ui/main_menu.gd" id="1_48c5t"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_dxhg3"]
+action = &"new_game"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_hsfr6"]
+events = [SubResource("InputEventAction_dxhg3")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_x3qmg"]
+action = &"quit_from_menu"
+
+[sub_resource type="Shortcut" id="Shortcut_1hr3v"]
+events = [SubResource("InputEventAction_x3qmg")]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -54,6 +67,7 @@ grow_vertical = 2
 
 [node name="StartGameButton" type="Button" parent="ColorRect/Buttons"]
 layout_mode = 2
+shortcut = SubResource("Shortcut_hsfr6")
 text = "start game"
 
 [node name="Spacer" type="Control" parent="ColorRect/Buttons"]
@@ -62,6 +76,7 @@ layout_mode = 2
 
 [node name="Exit" type="Button" parent="ColorRect/Buttons"]
 layout_mode = 2
+shortcut = SubResource("Shortcut_1hr3v")
 text = "exit"
 
 [connection signal="pressed" from="ColorRect/Buttons/StartGameButton" to="." method="_on_start_game_button_pressed"]

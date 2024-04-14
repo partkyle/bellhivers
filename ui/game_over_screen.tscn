@@ -1,7 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnhspfffl8e4v"]
+[gd_scene load_steps=7 format=3 uid="uid://dnhspfffl8e4v"]
 
 [ext_resource type="Theme" uid="uid://ime6wnkxuqh0" path="res://ui/ui_theme.tres" id="1_fvprn"]
 [ext_resource type="Script" path="res://ui/game_over_screen.gd" id="2_pn3t5"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_8fijl"]
+action = &"main_menu"
+
+[sub_resource type="Shortcut" id="Shortcut_tjvan"]
+events = [SubResource("InputEventAction_8fijl")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_6a8dl"]
+action = &"new_game"
+
+[sub_resource type="Shortcut" id="Shortcut_m6oqf"]
+events = [SubResource("InputEventAction_6a8dl")]
 
 [node name="GameOverScreen" type="Control"]
 layout_mode = 3
@@ -68,6 +80,7 @@ grow_vertical = 0
 
 [node name="MainMenuButton" type="Button" parent="ColorRect/Buttons"]
 layout_mode = 2
+shortcut = SubResource("Shortcut_tjvan")
 text = "main menu"
 
 [node name="Spacer" type="Control" parent="ColorRect/Buttons"]
@@ -76,6 +89,7 @@ layout_mode = 2
 
 [node name="HiveAgainButton" type="Button" parent="ColorRect/Buttons"]
 layout_mode = 2
+shortcut = SubResource("Shortcut_m6oqf")
 text = "hive again"
 
 [connection signal="pressed" from="ColorRect/Buttons/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
