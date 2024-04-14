@@ -29,7 +29,7 @@ func desired_movement_position():
 	else:
 		return patrol_position
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var direction = desired_movement_position() - global_position
 	if direction.length() > EPSILON:
 		velocity = direction.normalized() * speed

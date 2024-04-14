@@ -19,7 +19,7 @@ func _ready():
 	spawn_timer.wait_time = spawnTimer
 	EventBus.player_joined.connect(player_joined)
 
-func _process(delta):
+func _process(_delta):
 	if face_target:
 		look_at(face_target.global_position)
 		# hacky, but this is at least not weird looking

@@ -1,13 +1,15 @@
 class_name Player
 extends CharacterBody3D
 
-@export var bullet_scn : PackedScene = preload('res://projectiles/bullet.tscn')
-@export var bell_grenade_scn : PackedScene = preload('res://projectiles/bell_grenade.tscn')
+var bullet_scn : PackedScene = preload('res://projectiles/bullet.tscn')
+var bell_grenade_scn : PackedScene = preload('res://projectiles/bell_grenade.tscn')
+
 @export var speed = 5.0
 @export var camera_speed := 0.001
 @export var hitscan_max_distance := 1000
 @export var grenade_force := 250
 @export var camera_clamp := Vector2(-PI / 4, PI / 2)
+@export var max_time_falling := 5.0
 
 @onready var camera_wrapper = $CameraGunWrapper
 @onready var camera = $CameraGunWrapper/Camera
@@ -17,6 +19,7 @@ extends CharacterBody3D
 @onready var grenade_timer = $GrenadeTimer
 
 var game_start_position : Vector3
+var falling_time := 0.0
 
 
 const JUMP_VELOCITY = 4.5
@@ -39,6 +42,9 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+		falling_time += delta
+	else:
+		falling_time = 0
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -67,6 +73,9 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+	if falling_time >= max_time_falling:
+		die_from_falling()
+
 
 func throw_grenade():
 	var g :RigidBody3D = bell_grenade_scn.instantiate()
@@ -83,6 +92,9 @@ func hit_by_bee():
 
 func bell_smash():
 	EventBus.game_over.emit(GameOver.Cause.BELL)
+
+func die_from_falling():
+	EventBus.game_over.emit(GameOver.Cause.FALL)
 
 func fire_hitscan():
 	gun.play_gunshot()

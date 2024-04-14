@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://163ofm6opq6q"]
 
 [ext_resource type="Script" path="res://ui/mouse_handler.gd" id="1_f4pvp"]
+[ext_resource type="Script" path="res://ui/pause_handler.gd" id="2_10c7g"]
 [ext_resource type="PackedScene" uid="uid://bqtiy8waxdbyq" path="res://ui/main_menu.tscn" id="3_bio5x"]
-[ext_resource type="Script" path="res://scripts/debug.gd" id="3_gavpo"]
 [ext_resource type="PackedScene" uid="uid://dnhspfffl8e4v" path="res://ui/game_over_screen.tscn" id="4_nguon"]
 [ext_resource type="Script" path="res://scenes/level_controller.gd" id="5_1prlr"]
 
@@ -25,6 +25,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18.6472)
 [node name="MouseHandler" type="Node" parent="."]
 script = ExtResource("1_f4pvp")
 
+[node name="PauseHandler" type="Node" parent="."]
+script = ExtResource("2_10c7g")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0m4im")
 
@@ -33,6 +36,7 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="MainMenu" parent="CanvasLayer" instance=ExtResource("3_bio5x")]
 
@@ -40,6 +44,3 @@ shadow_enabled = true
 
 [node name="LevelController" type="Node3D" parent="."]
 script = ExtResource("5_1prlr")
-
-[node name="Debug" type="Node" parent="."]
-script = ExtResource("3_gavpo")

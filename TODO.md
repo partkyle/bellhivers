@@ -3,14 +3,14 @@ last day:
 	- [x] and look down
 - [x] bee kills player
 - [x] bell kills player
-- [ ] death on falling off the map (falling more than 30m?)
+- [x] death on falling off the map (falling more than 30m?)
 - [ ] ui
 	- [x] main menu screen
 	- [x] game over ----
 	- [x] repeat loop
 	- [ ] next lefel (optional) (maybe a toast for next level, decent, etc)
 	- [ ] animated type in ui text with clickities sounds
-- [ ] remove the debug UI
+- [x] remove the debug UI
 
 - [ ] stamina and running
 - [ ] visual indicator for aggro (red angry eyebrows or something)
