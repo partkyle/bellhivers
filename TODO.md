@@ -12,14 +12,12 @@
 	- [ ] hit animations
 - [x] clean up projectiles after some time
 	- [ ] use object pools?
-- [ ] bee has health
-  - [ ] weakpoints ?
-  - [ ] that scales ?
 - [ ] damage player
 - [ ] stamina and running
 - [x] bell model
 	- [x] bell sound
 	- [ ] clacker physics
+- [ ] death on falling off the map
 - [x] bell grenade (small jingle bell) (sphere and pixel art on top)
 	- [x] bell grenade summons light
 	- [x] bell grenade summons bell
@@ -29,20 +27,20 @@
 	- [x] extraction or menu based ( ring a bell ) - drop down
 	- [x] hive placement on each floor
 - [ ] remove the debug UI
+- [ ] visual indicator for aggro (red angry eyebrows or something)
 
 - [ ] ui
 	- [ ] main screen
 	- [ ] next lefel
 	- [ ] game over
 - [x] terrain texture that matches ( this might just be something that looks like grass and honey)
-- [ ] more interesting terrain
 
 gameplay
 - [ ] bell sound told bees where you are
 - [ ] bees can tell other bees where you are
 
+nice to have:
 - [ ] better terrain
-- [ ] death on falling off the map
 
 probably not:
 - [ ] individual mesh damage for bee
@@ -51,3 +49,6 @@ probably not:
 	- [ ] turret
 	- [ ] laser?
 - [ ] ammo?
+- [ ] bee has health
+  - [ ] weakpoints ?
+  - [ ] that scales ?
