@@ -30,6 +30,7 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		transform.basis = Basis(Vector3.UP, -event.relative.x * camera_speed) * transform.basis
 		camera_wrapper.transform.basis = Basis(camera_wrapper.transform.basis.x, -event.relative.y * camera_speed) * camera_wrapper.transform.basis
+		camera_wrapper.rotation.x = clamp(camera_wrapper.rotation.x, -PI / 4, PI / 4)
 
 
 func _physics_process(delta):
