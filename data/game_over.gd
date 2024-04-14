@@ -5,17 +5,19 @@ enum Cause { BEE, BELL, FALL };
 
 static var bee_phrases = [
 	"buzz buzz",
+	"that stings",
 ]
 
 static var bell_phrases = [
 	"you got rung",
 	"ask not for who the bell tolls",
 	"it tolls for thee",
+	"ding dong. who's there? you. dead.",
 ]
 
 static var fall_phrases = [
 	"you fell into infinity",
-	"spring has sprung, but you have not"
+	"minor gravity allergy",
 ]
 
 static func cause_to_text(cause: Cause) -> String:

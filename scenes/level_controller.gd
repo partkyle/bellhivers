@@ -13,39 +13,35 @@ var current_level : Level
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print_debug('connecting to game_started')
 	EventBus.game_started.connect(game_started)
+	EventBus.level_complete.connect(next_level)
 
 func game_started():
-	print_debug('game started')
 	if current_level:
 		current_level.free()
 		current_level = null
 
 	if current_player:
-		printerr('Player already exists! This should not have happend. What did you do!??!')
 		current_player.free()
 		current_player = null
 
 	current_floor = 0
-	create_level()
+	next_level()
 
 	current_player = player_scn.instantiate()
 	current_player.game_start_position = player_initial_position
 	get_tree().root.add_child.call_deferred(current_player)
 
-func create_level():
+func next_level():
 	var level = level_scn.instantiate()
+	level.current_floor = current_floor
 	add_child(level)
 	level.global_position = global_position + Vector3.DOWN * drop_per_floor * current_floor
 
 	current_floor += 1
 
-	print_debug(' on floor ', current_floor)
-
 	if current_level:
 		current_level.destroy()
 
 	current_level = level
-	current_level.connect('level_complete', create_level)
 
