@@ -1,5 +1,7 @@
 extends Control
 
+@onready var subtext_label = $ColorRect/Messages/SubtextLabel
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hide()
@@ -9,7 +11,8 @@ func _ready():
 func game_started():
 	hide()
 
-func game_over():
+func game_over(cause: GameOver.Cause):
+	subtext_label.text = GameOver.cause_to_text(cause)
 	show()
 
 

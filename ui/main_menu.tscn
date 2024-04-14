@@ -35,49 +35,49 @@ grow_vertical = 2
 theme = ExtResource("1_0f1qq")
 color = Color(0, 0, 0, 0.458824)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -240.0
-offset_top = 100.0
-offset_right = 240.0
-offset_bottom = 148.0
-grow_horizontal = 2
-
-[node name="Title" type="Label" parent="ColorRect/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "BELLHIVERS"
-
-[node name="Buttons" type="VBoxContainer" parent="ColorRect"]
+[node name="MenuWrapper" type="VBoxContainer" parent="ColorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -48.0
-offset_top = -35.0
-offset_right = 48.0
-offset_bottom = 35.0
+offset_left = -240.0
+offset_top = -104.0
+offset_right = 240.0
+offset_bottom = 104.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="StartGameButton" type="Button" parent="ColorRect/Buttons"]
+[node name="Titles" type="VBoxContainer" parent="ColorRect/MenuWrapper"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="ColorRect/MenuWrapper/Titles"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "BELLHIVERS"
+
+[node name="Spacer" type="Control" parent="ColorRect/MenuWrapper"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Buttons" type="VBoxContainer" parent="ColorRect/MenuWrapper"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="StartGameButton" type="Button" parent="ColorRect/MenuWrapper/Buttons"]
 layout_mode = 2
 shortcut = SubResource("Shortcut_hsfr6")
 text = "start game"
 
-[node name="Spacer" type="Control" parent="ColorRect/Buttons"]
+[node name="Spacer" type="Control" parent="ColorRect/MenuWrapper/Buttons"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="Exit" type="Button" parent="ColorRect/Buttons"]
+[node name="Exit" type="Button" parent="ColorRect/MenuWrapper/Buttons"]
 layout_mode = 2
 shortcut = SubResource("Shortcut_1hr3v")
 text = "exit"
 
-[connection signal="pressed" from="ColorRect/Buttons/StartGameButton" to="." method="_on_start_game_button_pressed"]
-[connection signal="pressed" from="ColorRect/Buttons/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="ColorRect/MenuWrapper/Buttons/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="ColorRect/MenuWrapper/Buttons/Exit" to="." method="_on_exit_pressed"]
