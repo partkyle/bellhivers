@@ -8,6 +8,7 @@ noise = SubResource("FastNoiseLite_ahg8h")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_15pio"]
 albedo_color = Color(0.12549, 0.231373, 0.0431373, 1)
 albedo_texture = SubResource("NoiseTexture2D_2l31a")
+texture_filter = 0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xdwd5"]
 size = Vector2(100, 100)
