@@ -21,7 +21,7 @@ func create_level():
 	print(current_floor)
 
 	if current_level:
-		current_level.queue_free()
+		current_level.destroy()
 
 	current_level = level
 	current_level.connect('level_complete', create_level)

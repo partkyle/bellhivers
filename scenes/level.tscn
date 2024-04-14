@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://clt5foi3l2jxf"]
+[gd_scene load_steps=4 format=3 uid="uid://clt5foi3l2jxf"]
 
 [ext_resource type="Script" path="res://scripts/hive_controller.gd" id="1_iuqkw"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_r4ycl"]
-[ext_resource type="PackedScene" uid="uid://1n0r1pvx421r" path="res://bodies/hive.tscn" id="2_trcbv"]
 [ext_resource type="PackedScene" uid="uid://vaes654ahljj" path="res://bodies/floor.tscn" id="4_atll0"]
 
 [node name="Level" type="Node3D"]
@@ -11,22 +10,9 @@ script = ExtResource("1_r4ycl")
 [node name="HiveController" type="Node3D" parent="."]
 script = ExtResource("1_iuqkw")
 
-[node name="Hive" parent="HiveController" node_paths=PackedStringArray("enemy_container") instance=ExtResource("2_trcbv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24.2029)
-enemy_container = NodePath("../../Enemies")
-
-[node name="Hive2" parent="HiveController" node_paths=PackedStringArray("enemy_container") instance=ExtResource("2_trcbv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.64177, 0, 4.94284)
-enemy_container = NodePath("../../Enemies")
-
-[node name="Hive3" parent="HiveController" node_paths=PackedStringArray("enemy_container") instance=ExtResource("2_trcbv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.3368, 0, -24.2029)
-enemy_container = NodePath("../../Enemies")
-
 [node name="Floor" parent="." instance=ExtResource("4_atll0")]
 
-[node name="Enemies" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.14768)
+[node name="EnemyContainer" type="Node" parent="."]
 
 [connection signal="all_hives_gone" from="HiveController" to="." method="_on_hive_controller_all_hives_gone"]
 [connection signal="child_entered_tree" from="HiveController" to="HiveController" method="_on_child_entered_tree"]

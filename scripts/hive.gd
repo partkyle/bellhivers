@@ -2,10 +2,10 @@ extends Node3D
 
 @export var bee : PackedScene
 @export var spawnTimer := 1.0
-@export var enemy_container : Node3D
 @export var bee_count := 50
 @export var spawn_radius := Vector2(-5, 5)
 
+var enemy_container : Node
 var face_target : Player
 
 @onready var spawn_timer = $SpawnTimer
@@ -16,8 +16,6 @@ var count = 0
 
 func _ready():
 	spawn_timer.wait_time = spawnTimer
-	if not enemy_container:
-		enemy_container = self
 
 	face_target = get_tree().get_first_node_in_group("player")
 

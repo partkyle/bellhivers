@@ -23,10 +23,11 @@
 - [x] bell grenade (small jingle bell) (sphere and pixel art on top)
 	- [x] bell grenade summons light
 	- [x] bell grenade summons bell
-- [x kill hive somehow
+- [x] kill hive somehow
 	- [x] kill individual components
 - [x] level mamangement script
 	- [x] extraction or menu based ( ring a bell ) - drop down
+	- [x] hive placement on each floor
 - [ ] remove the debug UI
 
 - [ ] ui
