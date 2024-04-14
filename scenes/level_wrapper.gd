@@ -2,7 +2,7 @@ class_name LevelWrapper
 extends Node3D
 
 @export var level_scn : PackedScene = preload('res://scenes/level.tscn')
-@export var drop_per_floor := 10
+@export var drop_per_floor := 20
 
 var current_floor = 0
 var current_level : Level
