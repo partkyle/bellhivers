@@ -19,13 +19,12 @@
 	- [x] bell sound
 	- [ ] clacker physics
 - [x] bell grenade (small jingle bell) (sphere and pixel art on top)
-	- [ ] bell grenade summons light
+	- [x] bell grenade summons light
 	- [x] bell grenade summons bell
 - [x kill hive somehow
 	- [x] kill individual components
 - [x] level mamangement script
 	- [x] extraction or menu based ( ring a bell ) - drop down
-	- [ ] create ui element
 - [ ] remove the debug UI
 
 - [ ] ui
@@ -34,6 +33,8 @@
 	- [ ] game over
 - [x] terrain texture that matches ( this might just be something that looks like grass and honey)
 - [ ] more interesting terrain
+
+gameplay
 - [ ] bell sound told bees where you are
 - [ ] bees can tell other bees where you are
 
