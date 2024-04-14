@@ -99,5 +99,6 @@ draw_pass_1 = SubResource("CylinderMesh_ign2b")
 
 [node name="Bullet" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -500)
+visible = false
 material_override = SubResource("ShaderMaterial_tfg5c")
 mesh = SubResource("CylinderMesh_t806x")

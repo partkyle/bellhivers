@@ -21,7 +21,7 @@ visible = false
 mesh = SubResource("CapsuleMesh_ddein")
 
 [node name="CameraGunWrapper" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.5, 0)
 
 [node name="Gun" parent="CameraGunWrapper" instance=ExtResource("2_c3pai")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.683, -0.5, -0.5)

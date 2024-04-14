@@ -1,3 +1,37 @@
+last day:
+- [x] player starts at 20m
+	- [x] and look down
+- [ ] damage player
+- [ ] death on falling off the map (falling more than 30m?)
+- [ ] ui
+	- [ ] main screen
+	- [ ] game over
+	- [ ] next lefel (optinal)
+- [ ] remove the debug UI
+
+- [ ] stamina and running
+- [ ] visual indicator for aggro (red angry eyebrows or something)
+
+- [ ] cooking the grenade to throw it farther
+- [ ] animate cooking by placing the grenade in front of you, and pehaps rotating it faster as it builds up
+
+- [ ] sound effect when falling 20m
+- [ ] better terrain texture
+- [ ] terrain textures on decent to inidcate better
+
+- [ ] overhead death cam ( especially on fall )
+- [ ] model for the character (just to explode it)
+
+- [ ] bell only using a in game material to get better metal look? Shadow?
+	- i love the shadows, so maybe not
+
+
+- [ ] bee has health
+  - [ ] weakpoints ?
+  - [ ] that scales ?
+
+Done or wont to:
+
 - [x] fix the bee z orientation to match godot
 - [x] fix the hive z orientation to match godot
 - [x] make a quick gun
@@ -12,12 +46,11 @@
 	- [ ] hit animations
 - [x] clean up projectiles after some time
 	- [ ] use object pools?
-- [ ] damage player
-- [ ] stamina and running
+
 - [x] bell model
 	- [x] bell sound
 	- [ ] clacker physics
-- [ ] death on falling off the map
+
 - [x] bell grenade (small jingle bell) (sphere and pixel art on top)
 	- [x] bell grenade summons light
 	- [x] bell grenade summons bell
@@ -26,18 +59,15 @@
 - [x] level mamangement script
 	- [x] extraction or menu based ( ring a bell ) - drop down
 	- [x] hive placement on each floor
-- [ ] remove the debug UI
-- [ ] visual indicator for aggro (red angry eyebrows or something)
 
-- [ ] ui
-	- [ ] main screen
-	- [ ] next lefel
-	- [ ] game over
+
+
+
 - [x] terrain texture that matches ( this might just be something that looks like grass and honey)
 
 gameplay
 - [ ] bell sound told bees where you are
-- [ ] bees can tell other bees where you are
+- [x] bees can tell other bees where you are
 
 nice to have:
 - [ ] better terrain
@@ -49,6 +79,4 @@ probably not:
 	- [ ] turret
 	- [ ] laser?
 - [ ] ammo?
-- [ ] bee has health
-  - [ ] weakpoints ?
-  - [ ] that scales ?
+
