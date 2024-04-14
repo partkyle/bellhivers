@@ -1,10 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://163ofm6opq6q"]
+[gd_scene load_steps=13 format=3 uid="uid://163ofm6opq6q"]
 
 [ext_resource type="Script" path="res://ui/mouse_handler.gd" id="1_f4pvp"]
 [ext_resource type="Script" path="res://ui/pause_handler.gd" id="2_10c7g"]
 [ext_resource type="PackedScene" uid="uid://bqtiy8waxdbyq" path="res://ui/main_menu.tscn" id="3_bio5x"]
+[ext_resource type="Script" path="res://ui/crosshair.gd" id="4_3oq8p"]
 [ext_resource type="PackedScene" uid="uid://dnhspfffl8e4v" path="res://ui/game_over_screen.tscn" id="4_nguon"]
 [ext_resource type="Script" path="res://scenes/level_controller.gd" id="5_1prlr"]
+[ext_resource type="PackedScene" uid="uid://cy3jl5jqpbutu" path="res://ui/in_game.tscn" id="5_llsyx"]
+[ext_resource type="Texture2D" uid="uid://dlgyl42phgbi4" path="res://assets/crosshair.png" id="5_v1on8"]
+[ext_resource type="PackedScene" uid="uid://6pu1xqnfnoae" path="res://ui/pause_menu.tscn" id="7_pn55j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_phxa0"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -38,9 +42,32 @@ shadow_enabled = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
 
+[node name="Crosshair" type="TextureRect" parent="CanvasLayer"]
+self_modulate = Color(0, 1, 1, 1)
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_v1on8")
+stretch_mode = 3
+script = ExtResource("4_3oq8p")
+metadata/_edit_use_anchors_ = true
+
 [node name="MainMenu" parent="CanvasLayer" instance=ExtResource("3_bio5x")]
 
 [node name="GameOverScreen" parent="CanvasLayer" instance=ExtResource("4_nguon")]
+
+[node name="InGame" parent="CanvasLayer" instance=ExtResource("5_llsyx")]
+
+[node name="PauseManu" parent="CanvasLayer" instance=ExtResource("7_pn55j")]
 
 [node name="LevelController" type="Node3D" parent="."]
 script = ExtResource("5_1prlr")

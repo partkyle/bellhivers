@@ -11,6 +11,9 @@ last day:
 	- [ ] next lefel (optional) (maybe a toast for next level, decent, etc)
 	- [ ] animated type in ui text with clickities sounds
 - [x] remove the debug UI
+- [x] pausing
+	- separate menu
+	- handle pausing using accept_event
 
 - [ ] stamina and running
 - [ ] visual indicator for aggro (red angry eyebrows or something)

@@ -1,8 +1,8 @@
 class_name LevelController
 extends Node3D
 
-@export var player_scn : PackedScene = preload('res://bodies/player.tscn')
-@export var level_scn : PackedScene = preload('res://scenes/level.tscn')
+var player_scn : PackedScene = preload('res://bodies/player.tscn')
+var level_scn : PackedScene = preload('res://scenes/level.tscn')
 @export var drop_per_floor := 20
 @export var player_initial_position := Vector3(0, 20, 0)
 

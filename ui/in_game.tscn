@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy3jl5jqpbutu"]
+
+[ext_resource type="Theme" uid="uid://ime6wnkxuqh0" path="res://ui/ui_theme.tres" id="1_c7j70"]
+[ext_resource type="Script" path="res://ui/in_game.gd" id="2_ack5x"]
+
+[node name="InGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_c7j70")
+script = ExtResource("2_ack5x")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 16.0
+text = "gello divers"

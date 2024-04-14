@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqtiy8waxdbyq"]
+[gd_scene load_steps=8 format=3 uid="uid://bqtiy8waxdbyq"]
 
 [ext_resource type="Theme" uid="uid://ime6wnkxuqh0" path="res://ui/ui_theme.tres" id="1_0f1qq"]
 [ext_resource type="Script" path="res://ui/main_menu.gd" id="1_48c5t"]
@@ -13,8 +13,13 @@ events = [SubResource("InputEventAction_dxhg3")]
 [sub_resource type="InputEventAction" id="InputEventAction_x3qmg"]
 action = &"quit_from_menu"
 
+[sub_resource type="InputEventKey" id="InputEventKey_kpjw4"]
+device = -1
+pressed = true
+keycode = 4194305
+
 [sub_resource type="Shortcut" id="Shortcut_1hr3v"]
-events = [SubResource("InputEventAction_x3qmg")]
+events = [SubResource("InputEventAction_x3qmg"), SubResource("InputEventKey_kpjw4")]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3

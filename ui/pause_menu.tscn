@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://6pu1xqnfnoae"]
+
+[ext_resource type="PackedScene" uid="uid://bqtiy8waxdbyq" path="res://ui/main_menu.tscn" id="1_posya"]
+[ext_resource type="Script" path="res://ui/pause_menu.gd" id="2_iv34t"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_p0ki0"]
+action = &"resume_game"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_7w7jh"]
+events = [SubResource("InputEventAction_p0ki0")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_x3qmg"]
+action = &"quit_from_menu"
+
+[sub_resource type="Shortcut" id="Shortcut_iapbv"]
+events = [SubResource("InputEventAction_x3qmg")]
+
+[node name="PauseManu" instance=ExtResource("1_posya")]
+script = ExtResource("2_iv34t")
+
+[node name="Resume" type="Button" parent="ColorRect/MenuWrapper/Buttons" index="0"]
+layout_mode = 2
+shortcut = SubResource("Shortcut_7w7jh")
+text = "resume"
+
+[node name="Spacer2" type="Control" parent="ColorRect/MenuWrapper/Buttons" index="1"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Exit" parent="ColorRect/MenuWrapper/Buttons" index="4"]
+shortcut = SubResource("Shortcut_iapbv")
+
+[connection signal="pressed" from="ColorRect/MenuWrapper/Buttons/Resume" to="." method="_on_resume_pressed"]
