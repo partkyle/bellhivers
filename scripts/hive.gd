@@ -30,10 +30,10 @@ func _process(delta):
 func _spawn():
 	var b = bee.instantiate()
 	enemy_container.add_child(b)
-	b.global_position = global_position + Vector3(randf_range(spawn_radius.x, spawn_radius.y),
+	b.setup(transform.basis,
+			global_position + Vector3(randf_range(spawn_radius.x, spawn_radius.y),
 												  randf_range(spawn_radius_vertical.x, spawn_radius_vertical.y),
-												  randf_range(spawn_radius.x, spawn_radius.y))
-	b.transform.basis = transform.basis
+												  randf_range(spawn_radius.x, spawn_radius.y)))
 
 func _on_spawn_timer_timeout():
 	if count < bee_count:
