@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://brgjwjphru0r"]
 
 [ext_resource type="Script" path="res://bodies/bee.gd" id="1_0hl8t"]
-[ext_resource type="PackedScene" uid="uid://7wo3basgcosp" path="res://bodies/bee_inherited.tscn" id="1_g4kd3"]
+[ext_resource type="PackedScene" uid="uid://7wo3basgcosp" path="res://bodies/bee_model.tscn" id="2_n8hg6"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_pfi07"]
 height = 10.0
@@ -16,7 +16,7 @@ collision_layer = 2
 collision_mask = 258
 script = ExtResource("1_0hl8t")
 
-[node name="bee_model" parent="." instance=ExtResource("1_g4kd3")]
+[node name="bee_model" parent="." instance=ExtResource("2_n8hg6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.96, 0)
 
 [node name="player_locator" type="Area3D" parent="."]

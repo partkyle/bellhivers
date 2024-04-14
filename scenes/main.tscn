@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://163ofm6opq6q"]
+[gd_scene load_steps=9 format=3 uid="uid://163ofm6opq6q"]
 
 [ext_resource type="PackedScene" uid="uid://beepb4m8e6685" path="res://bodies/player.tscn" id="2_ay3iu"]
 [ext_resource type="Script" path="res://scripts/debug.gd" id="3_gavpo"]
 [ext_resource type="Script" path="res://scenes/level_wrapper.gd" id="5_1prlr"]
+[ext_resource type="PackedScene" uid="uid://do4c71kx2bmvn" path="res://debris/debris.tscn" id="5_qmrd0"]
 [ext_resource type="Texture2D" uid="uid://dlgyl42phgbi4" path="res://assets/crosshair.png" id="5_v1on8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_phxa0"]
@@ -56,3 +57,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="LevelWrapper" type="Node3D" parent="."]
 script = ExtResource("5_1prlr")
+
+[node name="Debris" parent="." instance=ExtResource("5_qmrd0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.07, 0)

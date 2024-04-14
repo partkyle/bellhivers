@@ -9,6 +9,8 @@ extends Node3D
 var face_target : Player
 
 @onready var spawn_timer = $SpawnTimer
+@onready var hive_model = $hive_model
+
 
 var count = 0
 
@@ -37,6 +39,6 @@ func _on_spawn_timer_timeout():
 		count += 1
 		_spawn()
 
-
 func destroy():
+	hive_model.destroy()
 	queue_free()

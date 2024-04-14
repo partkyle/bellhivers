@@ -1,11 +1,15 @@
 extends Node3D
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+@export var debris_scn := preload('res://debris/debris.tscn')
 
+@onready var node = $Node
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func destroy():
+	for mesh in node.get_children():
+		print(mesh.global_position)
+		var b = debris_scn.instantiate()
+		get_tree().root.add_child(b)
+		b.global_position = mesh.global_position
+		mesh.reparent(b)
+		b.apply_central_force(Vector3(randf_range(-1000, 1000),randf_range(-1000, 1000),randf_range(-1000, 1000)))

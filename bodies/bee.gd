@@ -6,6 +6,9 @@ const EPSILON = 0.01
 
 var target : Node3D
 
+@onready var bee_model = $bee_model
+
+
 
 func _physics_process(delta):
 	if target:
@@ -22,7 +25,7 @@ func _physics_process(delta):
 
 
 func hit():
-	queue_free()
+	destroy()
 
 func bell_smash():
 	queue_free()
@@ -33,3 +36,8 @@ func _on_player_locator_body_entered(body):
 
 func _on_player_locator_body_exited(body):
 	target = null
+
+
+func destroy():
+	bee_model.destroy()
+	queue_free()

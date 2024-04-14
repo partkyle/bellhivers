@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 
+[editor]
+
+movie_writer/movie_file="movie.avi"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg")
@@ -69,3 +73,4 @@ jump={
 3d_physics/layer_3="environment"
 3d_physics/layer_4="Hive"
 3d_physics/layer_9="projectiles"
+3d_physics/layer_10="debris"
