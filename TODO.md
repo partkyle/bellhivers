@@ -3,10 +3,12 @@
 - [x] make a quick gun
 - [x] fps controls
 - [x] make shooting
-	- [ ] muzzle flash
+	- [x] muzzle flash
+	- [ ] good muzzle flash
 	- [ ] reload
-	- [ ] auto firing using a timer
+	- [x] auto firing using a timer
 	- [x] sound
+	- [ ] good sound that doesn't suck
 	- [ ] hit animations
 - [x] clean up projectiles after some time
 	- [ ] use object pools?

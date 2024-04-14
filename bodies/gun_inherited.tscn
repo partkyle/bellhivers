@@ -12,4 +12,5 @@ script = ExtResource("2_54hi0")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="1"]
 stream = ExtResource("3_vstku")
+volume_db = -9.234
 max_polyphony = 3

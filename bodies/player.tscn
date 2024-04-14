@@ -30,3 +30,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.683, -0.5, -0.5)
 
 [node name="GrenadeTossPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.25, -0.75)
+
+[node name="ShotTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
