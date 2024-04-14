@@ -1,5 +1,7 @@
 extends MainMenu
 
+@onready var stats_container = $ColorRect/StatsContainer
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hide()
@@ -8,6 +10,7 @@ func _ready():
 
 
 func open_pause_menu():
+	stats_container.update_stats()
 	show()
 
 func game_resumed():

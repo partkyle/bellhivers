@@ -28,7 +28,6 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 
 func _ready():
-	EventBus.player_joined.emit(self)
 	global_position = game_start_position
 
 func _input(event):

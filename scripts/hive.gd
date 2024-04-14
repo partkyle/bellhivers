@@ -17,9 +17,11 @@ var count = 0
 
 func _ready():
 	spawn_timer.wait_time = spawnTimer
-	EventBus.player_joined.connect(player_joined)
 
 func _process(_delta):
+	if not face_target:
+		face_target = get_tree().get_first_node_in_group("player")
+
 	if face_target:
 		look_at(face_target.global_position)
 		# hacky, but this is at least not weird looking
@@ -39,10 +41,6 @@ func _on_spawn_timer_timeout():
 	if count < bee_count:
 		count += 1
 		_spawn()
-
-
-func player_joined(player: Player):
-	face_target = player
 
 
 func destroy():
