@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://ime6wnkxuqh0"]
+
+[ext_resource type="FontFile" uid="uid://bdl4ghor4b4hv" path="res://assets/fonts/PressStart2P-Regular.ttf" id="1_vp5pg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mmfga"]
+content_margin_left = 10.0
+content_margin_top = 20.0
+content_margin_right = 10.0
+content_margin_bottom = 20.0
+
+[resource]
+default_font = ExtResource("1_vp5pg")
+Button/font_sizes/font_size = 24
+Button/styles/normal = SubResource("StyleBoxFlat_mmfga")

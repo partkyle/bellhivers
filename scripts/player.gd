@@ -14,11 +14,17 @@ extends CharacterBody3D
 @onready var grenade_toss_point = $GrenadeTossPoint
 @onready var shot_timer = $ShotTimer
 
+var game_start_position : Vector3
+
 
 const JUMP_VELOCITY = 4.5
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+
+func _ready():
+	EventBus.player_joined.emit(self)
+	global_position = game_start_position
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -83,6 +89,7 @@ func fire_hitscan():
 	# only collide with layer 2 "enemy"
 	var result = space_state.intersect_ray(query)
 	if result:
+		print_debug(result)
 		if result.collider and result.collider.has_method('hit'):
 			result.collider.hit(self)
 

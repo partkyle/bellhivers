@@ -5,8 +5,10 @@ last day:
 - [ ] death on falling off the map (falling more than 30m?)
 - [ ] ui
 	- [ ] main screen
-	- [ ] game over
-	- [ ] next lefel (optinal)
+	- [x] game over ----
+	- [x] repeat loop
+	- [ ] next lefel (optional) (maybe a toast for next level, decent, etc)
+	- [ ] animated type in ui text with clickities sounds
 - [ ] remove the debug UI
 
 - [ ] stamina and running
@@ -22,6 +24,8 @@ last day:
 - [ ] overhead death cam ( especially on fall )
 - [ ] model for the character (just to explode it)
 
+- [ ] music
+
 - [ ] bell only using a in game material to get better metal look? Shadow?
 	- i love the shadows, so maybe not
 
@@ -29,6 +33,9 @@ last day:
 - [ ] bee has health
   - [ ] weakpoints ?
   - [ ] that scales ?
+
+
+- [ ] thread groups
 
 Done or wont to:
 

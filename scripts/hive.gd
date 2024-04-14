@@ -17,8 +17,7 @@ var count = 0
 
 func _ready():
 	spawn_timer.wait_time = spawnTimer
-
-	face_target = get_tree().get_first_node_in_group("player")
+	EventBus.player_joined.connect(player_joined)
 
 func _process(delta):
 	if face_target:
@@ -26,6 +25,7 @@ func _process(delta):
 		# hacky, but this is at least not weird looking
 		rotation.x = 0
 		rotation.z = 0
+
 
 func _spawn():
 	var b = bee.instantiate()
@@ -39,6 +39,11 @@ func _on_spawn_timer_timeout():
 	if count < bee_count:
 		count += 1
 		_spawn()
+
+
+func player_joined(player: Player):
+	face_target = player
+
 
 func destroy():
 	hive_model.destroy()

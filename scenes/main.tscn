@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://163ofm6opq6q"]
 
-[ext_resource type="PackedScene" uid="uid://beepb4m8e6685" path="res://bodies/player.tscn" id="2_ay3iu"]
+[ext_resource type="Script" path="res://ui/mouse_handler.gd" id="1_f4pvp"]
 [ext_resource type="Script" path="res://scripts/debug.gd" id="3_gavpo"]
-[ext_resource type="Script" path="res://scenes/level_wrapper.gd" id="5_1prlr"]
-[ext_resource type="PackedScene" uid="uid://do4c71kx2bmvn" path="res://debris/debris.tscn" id="5_qmrd0"]
+[ext_resource type="PackedScene" uid="uid://dnhspfffl8e4v" path="res://ui/game_over_screen.tscn" id="4_nguon"]
+[ext_resource type="Script" path="res://scenes/level_controller.gd" id="5_1prlr"]
 [ext_resource type="Texture2D" uid="uid://dlgyl42phgbi4" path="res://assets/crosshair.png" id="5_v1on8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_phxa0"]
@@ -22,8 +22,8 @@ glow_enabled = true
 [node name="Main" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18.6472)
 
-[node name="Debug" type="Node3D" parent="."]
-script = ExtResource("3_gavpo")
+[node name="MouseHandler" type="Node" parent="."]
+script = ExtResource("1_f4pvp")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0m4im")
@@ -31,9 +31,6 @@ environment = SubResource("Environment_0m4im")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
-
-[node name="Player" parent="." instance=ExtResource("2_ay3iu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -55,8 +52,10 @@ texture = ExtResource("5_v1on8")
 stretch_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="LevelWrapper" type="Node3D" parent="."]
+[node name="GameOverScreen" parent="CanvasLayer" instance=ExtResource("4_nguon")]
+
+[node name="LevelController" type="Node3D" parent="."]
 script = ExtResource("5_1prlr")
 
-[node name="Debris" parent="." instance=ExtResource("5_qmrd0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.07, 0)
+[node name="Debug" type="Node3D" parent="."]
+script = ExtResource("3_gavpo")
