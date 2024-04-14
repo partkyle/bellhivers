@@ -7,6 +7,7 @@ extends CharacterBody3D
 @export var camera_speed := 0.001
 @export var hitscan_max_distance := 1000
 @export var grenade_force := 250
+@export var camera_clamp := Vector2(-PI / 4, PI / 2)
 
 @onready var camera_wrapper = $CameraGunWrapper
 @onready var camera = $CameraGunWrapper/Camera
@@ -31,7 +32,7 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		transform.basis = Basis(Vector3.UP, -event.relative.x * camera_speed) * transform.basis
 		camera_wrapper.transform.basis = Basis(camera_wrapper.transform.basis.x, -event.relative.y * camera_speed) * camera_wrapper.transform.basis
-		camera_wrapper.rotation.x = clamp(camera_wrapper.rotation.x, -PI / 4, PI / 4)
+		camera_wrapper.rotation.x = clamp(camera_wrapper.rotation.x, camera_clamp.x, camera_clamp.y)
 
 
 func _physics_process(delta):
