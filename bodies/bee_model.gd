@@ -19,7 +19,6 @@ extends Node3D
 
 func destroy():
 	for mesh in meshes:
-		print(mesh.global_position)
 		var b = debris_scn.instantiate()
 		get_tree().root.add_child(b)
 		b.global_position = mesh.global_position

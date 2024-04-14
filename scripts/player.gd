@@ -82,7 +82,6 @@ func fire_hitscan():
 	# only collide with layer 2 "enemy"
 	var result = space_state.intersect_ray(query)
 	if result:
-		print(result)
 		if result.collider and result.collider.has_method('hit'):
 			result.collider.hit()
 
