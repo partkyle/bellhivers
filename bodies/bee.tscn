@@ -64,6 +64,5 @@ shape = SubResource("CapsuleShape3D_tmbyf")
 metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="player_locator" to="." method="_on_player_locator_body_entered"]
-[connection signal="body_exited" from="player_locator" to="." method="_on_player_locator_body_exited"]
 [connection signal="timeout" from="PatrolTimer" to="." method="_on_patrol_timer_timeout"]
 [connection signal="body_entered" from="player_damage" to="." method="_on_player_damage_body_entered"]

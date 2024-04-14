@@ -58,10 +58,6 @@ func acquire_target(t: Node3D):
 	target = t
 	aggro_alert.play()
 
-func _on_player_locator_body_exited(body):
-	target = null
-
-
 func set_patrol_position():
 	patrol_position = initial_position + Vector3(randf_range(patrol_range.x, patrol_range.y),
 												 randf_range(patrol_range.x, patrol_range.y),
