@@ -13,6 +13,7 @@ extends CharacterBody3D
 @onready var gun : Gun = $CameraGunWrapper/Gun
 @onready var grenade_toss_point = $GrenadeTossPoint
 @onready var shot_timer = $ShotTimer
+@onready var grenade_timer = $GrenadeTimer
 
 var game_start_position : Vector3
 
@@ -48,7 +49,9 @@ func _physics_process(delta):
 			fire_hitscan()
 
 	if Input.is_action_just_pressed('grenade'):
-		throw_grenade()
+		if grenade_timer.is_stopped():
+			grenade_timer.start()
+			throw_grenade()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

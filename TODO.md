@@ -4,7 +4,7 @@ last day:
 - [ ] damage player
 - [ ] death on falling off the map (falling more than 30m?)
 - [ ] ui
-	- [ ] main screen
+	- [x] main menu screen
 	- [x] game over ----
 	- [x] repeat loop
 	- [ ] next lefel (optional) (maybe a toast for next level, decent, etc)
@@ -36,6 +36,14 @@ last day:
 
 
 - [ ] thread groups
+
+
+THINGS to test:
+- shooting
+- death
+- fall
+- menus
+- menu shortcuts
 
 Done or wont to:
 
