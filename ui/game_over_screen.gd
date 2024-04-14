@@ -1,6 +1,6 @@
 extends Control
 
-@onready var subtext_label = $ColorRect/Messages/SubtextLabel
+@onready var subtext_label = $ColorRect/MenuWrapper/Messages/SubtextLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,5 +21,5 @@ func _on_main_menu_button_pressed():
 	hide()
 
 
-func _on_hive_again_button_pressed():
+func _on_start_new_game_pressed():
 	EventBus.game_started.emit()

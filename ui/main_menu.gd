@@ -9,9 +9,10 @@ func open_main_menu():
 	show()
 
 
-func _on_start_game_button_pressed():
+func _on_start_new_game_pressed():
 	EventBus.game_started.emit()
 	hide()
 
 func _on_exit_pressed():
 	get_tree().quit()
+

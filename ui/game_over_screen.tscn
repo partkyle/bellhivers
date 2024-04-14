@@ -34,7 +34,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.458824)
 
-[node name="Messages" type="VBoxContainer" parent="ColorRect"]
+[node name="MenuWrapper" type="VBoxContainer" parent="ColorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -42,55 +42,52 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -216.0
-offset_top = -24.0
+offset_top = -139.0
 offset_right = 216.0
-offset_bottom = 24.0
+offset_bottom = 139.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GameOverLabel" type="Label" parent="ColorRect/Messages"]
+[node name="Messages" type="VBoxContainer" parent="ColorRect/MenuWrapper"]
+layout_mode = 2
+
+[node name="GameOverLabel" type="Label" parent="ColorRect/MenuWrapper/Messages"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Game Over"
 horizontal_alignment = 1
 
-[node name="Control" type="Control" parent="ColorRect/Messages"]
+[node name="Control" type="Control" parent="ColorRect/MenuWrapper/Messages"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="SubtextLabel" type="Label" parent="ColorRect/Messages"]
+[node name="SubtextLabel" type="Label" parent="ColorRect/MenuWrapper/Messages"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "hives win"
 horizontal_alignment = 1
 
-[node name="Buttons" type="HBoxContainer" parent="ColorRect"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -76.0
-offset_top = -80.0
-offset_right = 76.0
-offset_bottom = -40.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="Spacer" type="Control" parent="ColorRect/MenuWrapper/Messages"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
 
-[node name="MainMenuButton" type="Button" parent="ColorRect/Buttons"]
+[node name="Buttons" type="VBoxContainer" parent="ColorRect/MenuWrapper"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="MainMenuButton" type="Button" parent="ColorRect/MenuWrapper/Buttons"]
 layout_mode = 2
 shortcut = SubResource("Shortcut_tjvan")
 text = "main menu"
 
-[node name="Spacer" type="Control" parent="ColorRect/Buttons"]
+[node name="Spacer" type="Control" parent="ColorRect/MenuWrapper/Buttons"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="HiveAgainButton" type="Button" parent="ColorRect/Buttons"]
+[node name="StartNewGame" type="Button" parent="ColorRect/MenuWrapper/Buttons"]
 layout_mode = 2
 shortcut = SubResource("Shortcut_m6oqf")
-text = "hive again"
+text = "start new game"
 
-[connection signal="pressed" from="ColorRect/Buttons/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
-[connection signal="pressed" from="ColorRect/Buttons/HiveAgainButton" to="." method="_on_hive_again_button_pressed"]
+[connection signal="pressed" from="ColorRect/MenuWrapper/Buttons/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="ColorRect/MenuWrapper/Buttons/StartNewGame" to="." method="_on_start_new_game_pressed"]
