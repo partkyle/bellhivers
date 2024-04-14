@@ -4,9 +4,12 @@ const EPSILON = 0.1
 
 @export var speed := 4.0
 @export var patrol_range := Vector2(-5, 5)
+@export var notify_community_delay := 1.0
 
 @onready var bee_model = $bee_model
 @onready var patrol_timer = $PatrolTimer
+@onready var enemy_community = $enemy_community
+@onready var aggro_alert = $AggroAlert
 
 var initial_position : Vector3
 var patrol_position : Vector3
@@ -37,24 +40,28 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-func hit():
-	destroy()
+func hit(attacker: Node3D):
+	bee_model.destroy()
+	await get_tree().create_timer(notify_community_delay).timeout
+	for e in enemy_community.get_overlapping_bodies():
+		e.acquire_target(attacker)
+	queue_free()
+
 
 func bell_smash():
+	bee_model.destroy()
 	queue_free()
 
 func _on_player_locator_body_entered(body):
 	patrol_timer.stop()
-	target = body
+	acquire_target(body)
 
+func acquire_target(t: Node3D):
+	target = t
+	aggro_alert.play()
 
 func _on_player_locator_body_exited(body):
 	target = null
-
-
-func destroy():
-	bee_model.destroy()
-	queue_free()
 
 
 func set_patrol_position():

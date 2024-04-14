@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://brgjwjphru0r"]
+[gd_scene load_steps=7 format=3 uid="uid://brgjwjphru0r"]
 
 [ext_resource type="Script" path="res://bodies/bee.gd" id="1_0hl8t"]
 [ext_resource type="PackedScene" uid="uid://7wo3basgcosp" path="res://bodies/bee_model.tscn" id="2_n8hg6"]
+[ext_resource type="AudioStream" uid="uid://du255nsrka5mh" path="res://assets/sounds/Hit_Hurt13.wav" id="3_qssah"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqeck"]
 radius = 0.7
@@ -11,12 +12,12 @@ height = 2.905
 height = 10.0
 radius = 10.0
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_18utf"]
-height = 20.0
+[sub_resource type="SphereShape3D" id="SphereShape3D_cbwkg"]
+radius = 5.0
 
 [node name="Bee" type="CharacterBody3D"]
 collision_layer = 2
-collision_mask = 258
+collision_mask = 266
 script = ExtResource("1_0hl8t")
 
 [node name="bee_model" parent="." instance=ExtResource("2_n8hg6")]
@@ -37,11 +38,14 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="enemy_community"]
-shape = SubResource("CylinderShape3D_18utf")
+shape = SubResource("SphereShape3D_cbwkg")
 
 [node name="PatrolTimer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+
+[node name="AggroAlert" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_qssah")
 
 [connection signal="body_entered" from="player_locator" to="." method="_on_player_locator_body_entered"]
 [connection signal="body_exited" from="player_locator" to="." method="_on_player_locator_body_exited"]

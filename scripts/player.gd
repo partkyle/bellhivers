@@ -84,7 +84,7 @@ func fire_hitscan():
 	var result = space_state.intersect_ray(query)
 	if result:
 		if result.collider and result.collider.has_method('hit'):
-			result.collider.hit()
+			result.collider.hit(self)
 
 func fire_projectile():
 	var bullet : Bullet = bullet_scn.instantiate()
