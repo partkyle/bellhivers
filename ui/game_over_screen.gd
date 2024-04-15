@@ -1,5 +1,6 @@
 extends Control
 
+@onready var killed_by_label = $ColorRect/MenuWrapper/Messages/KilledByLabel
 @onready var subtext_label = $ColorRect/MenuWrapper/Messages/SubtextLabel
 @onready var stats_container = $ColorRect/StatsContainer
 
@@ -13,7 +14,8 @@ func game_started():
 	hide()
 
 func game_over(cause: GameOver.Cause):
-	subtext_label.text = GameOver.cause_to_text(cause)
+	killed_by_label.text = GameOver.cause_to_text(cause)
+	subtext_label.text = GameOver.cause_to_text_funny(cause)
 	stats_container.update_stats()
 	show()
 

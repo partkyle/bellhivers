@@ -1,5 +1,7 @@
 extends Control
 
+@onready var stats_container = $StatsContainer
+
 func _ready():
 	hide()
 	EventBus.open_main_menu.connect(open_main_menu)
@@ -26,6 +28,10 @@ func game_over(_cause: GameOver.Cause):
 	hide()
 
 func _input(event):
-	if visible and event.is_action_pressed('main_menu'):
+	if visible and event.is_action_pressed('pause_game'):
 		EventBus.open_pause_menu.emit()
 		accept_event()
+
+
+func _process(_delta):
+	stats_container.update_stats()

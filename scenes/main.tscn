@@ -68,6 +68,7 @@ metadata/_edit_use_anchors_ = true
 [node name="InGame" parent="CanvasLayer" instance=ExtResource("5_llsyx")]
 
 [node name="PauseManu" parent="CanvasLayer" instance=ExtResource("7_pn55j")]
+theme = null
 
 [node name="LevelController" type="Node3D" parent="."]
 script = ExtResource("5_1prlr")

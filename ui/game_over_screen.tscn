@@ -58,7 +58,17 @@ theme_override_font_sizes/font_size = 48
 text = "Game Over"
 horizontal_alignment = 1
 
-[node name="Control" type="Control" parent="ColorRect/MenuWrapper/Messages"]
+[node name="Spacer" type="Control" parent="ColorRect/MenuWrapper/Messages"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="KilledByLabel" type="Label" parent="ColorRect/MenuWrapper/Messages"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "hives win"
+horizontal_alignment = 1
+
+[node name="Spacer2" type="Control" parent="ColorRect/MenuWrapper/Messages"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
@@ -68,7 +78,7 @@ theme_override_font_sizes/font_size = 32
 text = "hives win"
 horizontal_alignment = 1
 
-[node name="Spacer" type="Control" parent="ColorRect/MenuWrapper/Messages"]
+[node name="Spacer" type="Control" parent="ColorRect/MenuWrapper"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 

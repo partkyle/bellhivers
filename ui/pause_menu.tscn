@@ -36,4 +36,7 @@ shortcut = SubResource("Shortcut_iapbv")
 layout_mode = 1
 offset_left = -346.0
 
+[node name="GameDescription" parent="ColorRect" index="3"]
+visible = false
+
 [connection signal="pressed" from="ColorRect/MenuWrapper/Buttons/Resume" to="." method="_on_resume_pressed"]

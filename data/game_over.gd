@@ -20,7 +20,21 @@ static var fall_phrases = [
 	"minor gravity allergy",
 ]
 
+static func cause_to_name(cause: Cause) -> String:
+	match cause:
+		Cause.BEE:
+			return 'a bee'
+		Cause.BELL:
+			return 'your own bell'
+		Cause.FALL:
+			return 'gravity'
+
+	return 'your own ignorance'
+
 static func cause_to_text(cause: Cause) -> String:
+	return 'you were killed by a %s' % cause_to_name(cause)
+
+static func cause_to_text_funny(cause: Cause) -> String:
 	match cause:
 		Cause.BEE:
 			return bee_phrases.pick_random()
@@ -29,4 +43,4 @@ static func cause_to_text(cause: Cause) -> String:
 		Cause.FALL:
 			return fall_phrases.pick_random()
 
-	return "you lose"
+	return 'you lose'
