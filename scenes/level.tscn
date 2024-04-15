@@ -13,6 +13,3 @@ script = ExtResource("1_iuqkw")
 [node name="Floor" parent="." instance=ExtResource("4_atll0")]
 
 [node name="EnemyContainer" type="Node" parent="."]
-
-[connection signal="child_entered_tree" from="HiveController" to="HiveController" method="_on_child_entered_tree"]
-[connection signal="child_exiting_tree" from="HiveController" to="HiveController" method="_on_child_exiting_tree"]

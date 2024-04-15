@@ -17,3 +17,4 @@ movie.avi
 *.exe
 *.zip
 *.pck
+build/

@@ -10,7 +10,8 @@ extends Node3D
 var hives_left := 0
 
 func _ready():
-	for i in hives_to_spanwn():
+	hives_left = hives_to_spanwn()
+	for i in hives_left:
 		var hive = hive_scn.instantiate()
 		hive.enemy_container = enemy_container
 		add_child(hive)
@@ -20,11 +21,11 @@ func hives_to_spanwn():
 	# make sure there is at least 1
 	return max((level.current_floor + 1) / 2, 1)
 
-func _on_child_entered_tree(_node):
-	hives_left += 1
 
-func _on_child_exiting_tree(_node):
+func bell_destroyed():
 	hives_left -= 1
 
 	if hives_left <= 0:
 		EventBus.level_complete.emit()
+
+

@@ -17,7 +17,7 @@ static var bell_phrases = [
 
 static var fall_phrases = [
 	"you fell into infinity",
-	"minor gravity allergy",
+	"you have a minor gravity allergy",
 ]
 
 static func cause_to_name(cause: Cause) -> String:

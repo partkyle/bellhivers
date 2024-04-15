@@ -45,5 +45,6 @@ func _on_spawn_timer_timeout():
 
 func destroy():
 	Stats.hives_destroyed += 1
+	get_parent().bell_destroyed()
 	hive_model.destroy()
 	queue_free()
