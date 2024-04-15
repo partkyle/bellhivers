@@ -104,7 +104,3 @@ pause_game={
 3d_physics/layer_4="Hive"
 3d_physics/layer_9="projectiles"
 3d_physics/layer_10="debris"
-
-[rendering]
-
-renderer/rendering_method="mobile"
