@@ -19,3 +19,7 @@ All code was written by me.
 Some audio sounds were generated using bfxr.
 
 Various audio assets were found in public domain searches.
+
+# Playable on itch.io
+
+[https://partkyle.itch.io/bellhivers](https://partkyle.itch.io/bellhivers)
